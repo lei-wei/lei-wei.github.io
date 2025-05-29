@@ -1,73 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>尝试写点东西</title>
-    <url>/2021/03/06/2021-03-05-%E5%B0%9D%E8%AF%95%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF/</url>
-    <content><![CDATA[<h1 id="hi，这里是我的博客"><a href="#hi，这里是我的博客" class="headerlink" title="hi，这里是我的博客"></a>hi，这里是我的博客</h1><p>终于把个人网站搭建起来了！真是不容易呢，有这个想法很久了，走了很多弯路，最后终于还是做出来了。还不太完善，日后会一边写内容一边将网站继续完善完善。</p>
-<span id="more"></span>
-
-<h2 id="博客项目"><a href="#博客项目" class="headerlink" title="博客项目"></a>博客项目</h2><p>不得不感叹GitHub太强了！尝试过一些其他的方式，最后还是选择了白嫖<del>(bushi)</del> 。</p>
-<p>这里是我的<a class="link"   href="https://github.com/lei-wei/lei-wei.github.io" >博客项目主页<i class="fas fa-external-link-alt"></i></a>，折腾很麻烦，但我还是折腾了很久。目前看得懂部分的不多，目标是把相关的技术达到会使用的程度，然后把我的博客再完全个人定制一下。</p>
-<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名是<a class="link"   href="https://wanwang.aliyun.com/" >阿里云<i class="fas fa-external-link-alt"></i></a>上首年五块钱买的，起名字的时候还是小小纠结了一下，转念一想五块钱还要什么自行车！于是简单粗暴地整就完了。</p>
-<h2 id="总想写点什么东西"><a href="#总想写点什么东西" class="headerlink" title="总想写点什么东西"></a>总想写点什么东西</h2><hr>
-<p>博客说到底也就是一个特殊一点的展示信息的平台，重要的还是内容，所以接下来不出意外的话我会尽可能地做一些尝试，往网站上推一些奇奇怪怪的内容，不要太在意哈。</p>
-<h2 id="一些计划"><a href="#一些计划" class="headerlink" title="一些计划"></a>一些计划</h2><p>日常琐碎的会随便写写，想到啥写啥，不会有什么顾忌。</p>
-<p>包括</p>
-<ul>
-<li>日常/回忆录</li>
-<li>成体系的学习笔记</li>
-<li>不成熟的想法，希望它们能慢慢变得成熟</li>
-</ul>
-<hr>
-<p>写完了的东西会不定期修改整理，自己整的好处就在于——我有完整的控制权，不会留下什么黑历史的~（也许）</p>
-<ul>
-<li>太琐碎的也许会删掉（不会的）</li>
-<li>类似美食之类的，可能会合并内容做成长篇</li>
-<li>一些的想法心路，会根据tag标签功能做成集合吧，</li>
-<li>个人回忆录系列</li>
-</ul>
-<p>具体怎么做谁知道呢，哪来那么多规则，写了再说吧！</p>
-<p>就从这一篇开始。</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python装饰器</title>
-    <url>/2021/03/16/2021-03-14-Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="python装饰器"><a href="#python装饰器" class="headerlink" title="python装饰器"></a>python装饰器</h1><p>装饰器，在不改变原函数的情况下，为其增强功能。</p>
-<span id="more"></span>
-
-<h2 id="1-前置知识"><a href="#1-前置知识" class="headerlink" title="1. 前置知识"></a>1. 前置知识</h2><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>在python中函数也是被视为对象的，可以作为参数传递</p>
-<h5 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">return</span> n * n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a, b, fun</span>):</span><br><span class="line">    res = fun(a) + fun(b)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(func(<span class="number">2</span>, <span class="number">3</span>, square))    <span class="comment"># 函数square作为函数传入到函数func中</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：13</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sub</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line">funcs = [add, sub]  <span class="comment"># 函数作为列表成员方便调用</span></span><br><span class="line"><span class="built_in">print</span>(funcs[<span class="number">0</span>](<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(funcs[<span class="number">1</span>](<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：3，-1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h3><p>声明在一个函数种的函数被称为闭包函数，它可以访问其所在外部函数的参数和变量。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>():</span><br><span class="line">    x = <span class="number">5</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">outer()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果是 5 ,内部函数inner引用外部函数的变量   </span></span><br><span class="line"><span class="comment"># inner()函数就是一个闭包</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、简单的装饰器示例"><a href="#2、简单的装饰器示例" class="headerlink" title="2、简单的装饰器示例"></a>2、简单的装饰器示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_spend_time</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    description: </span></span><br><span class="line"><span class="string">    一个监测程序运行的装饰器函数。在不改动原业务函数的情况下，增添其功能。    </span></span><br><span class="line"><span class="string">    输入一个函数，即参数为业务函数  </span></span><br><span class="line"><span class="string">    返回一个函数，即新建的内部闭包函数（装饰过的函数）  </span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="comment"># 调用前的操作</span></span><br><span class="line">        start = time.time()</span><br><span class="line">        <span class="comment"># 调用业务函数   </span></span><br><span class="line">        func()</span><br><span class="line">        <span class="comment"># 调用后的操作 </span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> is called&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(func.__name__ + <span class="string">&#x27;() start&#x27;</span>)</span><br><span class="line">        end = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;用时&#123;:.5f&#125;秒&#x27;</span>.<span class="built_in">format</span>(end-start))</span><br><span class="line">    <span class="keyword">return</span> wrapper  <span class="comment">#返回装饰后的闭包函数   </span></span><br><span class="line"></span><br><span class="line"><span class="meta">@calc_spend_time  </span><span class="comment"># 语法糖，相当于hello = decorator(hello)  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello world!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    hello()</span><br><span class="line"></span><br><span class="line"><span class="comment"># hello world!     </span></span><br><span class="line"><span class="comment"># &lt;function hello at 0x01F2ED18&gt; is called    </span></span><br><span class="line"><span class="comment"># hello() start    </span></span><br><span class="line"><span class="comment"># 用时0.00099秒   </span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-业务函数带参数"><a href="#3-业务函数带参数" class="headerlink" title="3. 业务函数带参数"></a>3. 业务函数带参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    description: 记录日志的装饰器函数。</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        业务函数的参数通过wrapper的函数来传递  </span></span><br><span class="line"><span class="string">        返回值通过wrapper的返回值返回   </span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        value = func(*args, **kwargs)  <span class="comment"># 记录业务函数返回值   </span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> is called with arguments = <span class="subst">&#123;args&#125;</span> and kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> return value <span class="subst">&#123;value&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> value  <span class="comment"># 返回业务函数的返回值  </span></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator  </span><span class="comment"># 语法糖，相当于hello = decorator(hello)   </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">sum</span> += num</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;args = <span class="subst">&#123;args&#125;</span>, kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func1(<span class="number">1</span>, <span class="number">2</span>, c=<span class="number">3</span>, d=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># args = (1, 2), kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;   </span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x013DED18&gt; is called with arguments = (1, 2) and kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;    </span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x013DED18&gt; return value 3   </span></span><br></pre></td></tr></table></figure>
-
-<p>参数<code>*args</code>用来发送一个非键值对的<strong>可变数量的参数列表</strong>给一个函数，可看作<code>tuple</code><br><code>参数**kwargs</code>允许你将不定长度的<strong>键值对</strong>作为参数传递给一个函数，可看作<code>dict</code></p>
-<h2 id="4-装饰器带参数"><a href="#4-装饰器带参数" class="headerlink" title="4. 装饰器带参数"></a>4. 装饰器带参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>(<span class="params">author</span>):  <span class="comment"># 再套一层，传入装饰器的参数   </span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">middle</span>(<span class="params">func</span>): <span class="comment"># 中间层传入业务函数</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            value = func(*args, **kwargs)  <span class="comment"># 记录业务函数返回值</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;author: &#x27;</span>, author,</span><br><span class="line">                  <span class="string">f&#x27;\n<span class="subst">&#123;func&#125;</span> is called with arguments = <span class="subst">&#123;args&#125;</span> and kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>,</span><br><span class="line">                  <span class="string">f&#x27;\nreturn value: <span class="subst">&#123;value&#125;</span>&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> value   <span class="comment"># 返回业务函数的返回值</span></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> middle</span><br><span class="line"></span><br><span class="line"><span class="comment"># @outer(&#x27;lei&#x27;)  # 语法糖，相当于func1 = outer(&#x27;lei&#x27;)(func1)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">sum</span> += num</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func1 = outer(<span class="string">&#x27;lei&#x27;</span>)(func1)</span><br><span class="line">    func1(<span class="number">1</span>, <span class="number">2</span>, c=<span class="number">3</span>, d=<span class="number">4</span>)</span><br><span class="line">    <span class="comment"># # 不用语法糖等价1：</span></span><br><span class="line">    <span class="comment"># func1 = outer(&#x27;lei&#x27;)(func1)</span></span><br><span class="line">    <span class="comment"># func1(1, 2, c=3, d=4)</span></span><br><span class="line">    <span class="comment"># # 不用语法糖等价2：</span></span><br><span class="line">    <span class="comment"># func1 = outer(&#x27;lei&#x27;)(func1)(1, 2, c=3, d=4)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果：</span></span><br><span class="line"><span class="comment"># author:  lei</span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x0192EE38&gt; is called with arguments = (1, 2) and kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;</span></span><br><span class="line"><span class="comment"># return value: 3</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>干了这碗襄阳牛肉面</title>
     <url>/2021/03/07/2021-03-07-%E5%B9%B2%E4%BA%86%E8%BF%99%E7%A2%97%E7%89%9B%E8%82%89%E9%9D%A2/</url>
     <content><![CDATA[<p>正宗的碱面配上红油汤汁，香气扑鼻味道可口，辅以虎皮鸡蛋、卤香干亦或是油条，再撒上些许葱末，在健身之后饥肠辘辘时来上一大碗，回味悠长，实乃一道美味。</p>
@@ -114,6 +47,115 @@
       </tags>
   </entry>
   <entry>
+    <title>Python装饰器</title>
+    <url>/2021/03/16/2021-03-14-Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="python装饰器"><a href="#python装饰器" class="headerlink" title="python装饰器"></a>python装饰器</h1><p>装饰器，在不改变原函数的情况下，为其增强功能。</p>
+<span id="more"></span>
+
+<h2 id="1-前置知识"><a href="#1-前置知识" class="headerlink" title="1. 前置知识"></a>1. 前置知识</h2><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>在python中函数也是被视为对象的，可以作为参数传递</p>
+<h5 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">return</span> n * n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a, b, fun</span>):</span><br><span class="line">    res = fun(a) + fun(b)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(func(<span class="number">2</span>, <span class="number">3</span>, square))    <span class="comment"># 函数square作为函数传入到函数func中</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：13</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sub</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line">funcs = [add, sub]  <span class="comment"># 函数作为列表成员方便调用</span></span><br><span class="line"><span class="built_in">print</span>(funcs[<span class="number">0</span>](<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(funcs[<span class="number">1</span>](<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：3，-1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h3><p>声明在一个函数种的函数被称为闭包函数，它可以访问其所在外部函数的参数和变量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>():</span><br><span class="line">    x = <span class="number">5</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>():</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">outer()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果是 5 ,内部函数inner引用外部函数的变量   </span></span><br><span class="line"><span class="comment"># inner()函数就是一个闭包</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、简单的装饰器示例"><a href="#2、简单的装饰器示例" class="headerlink" title="2、简单的装饰器示例"></a>2、简单的装饰器示例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_spend_time</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    description: </span></span><br><span class="line"><span class="string">    一个监测程序运行的装饰器函数。在不改动原业务函数的情况下，增添其功能。    </span></span><br><span class="line"><span class="string">    输入一个函数，即参数为业务函数  </span></span><br><span class="line"><span class="string">    返回一个函数，即新建的内部闭包函数（装饰过的函数）  </span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="comment"># 调用前的操作</span></span><br><span class="line">        start = time.time()</span><br><span class="line">        <span class="comment"># 调用业务函数   </span></span><br><span class="line">        func()</span><br><span class="line">        <span class="comment"># 调用后的操作 </span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> is called&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(func.__name__ + <span class="string">&#x27;() start&#x27;</span>)</span><br><span class="line">        end = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;用时&#123;:.5f&#125;秒&#x27;</span>.<span class="built_in">format</span>(end-start))</span><br><span class="line">    <span class="keyword">return</span> wrapper  <span class="comment">#返回装饰后的闭包函数   </span></span><br><span class="line"></span><br><span class="line"><span class="meta">@calc_spend_time  </span><span class="comment"># 语法糖，相当于hello = decorator(hello)  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello world!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    hello()</span><br><span class="line"></span><br><span class="line"><span class="comment"># hello world!     </span></span><br><span class="line"><span class="comment"># &lt;function hello at 0x01F2ED18&gt; is called    </span></span><br><span class="line"><span class="comment"># hello() start    </span></span><br><span class="line"><span class="comment"># 用时0.00099秒   </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-业务函数带参数"><a href="#3-业务函数带参数" class="headerlink" title="3. 业务函数带参数"></a>3. 业务函数带参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    description: 记录日志的装饰器函数。</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        业务函数的参数通过wrapper的函数来传递  </span></span><br><span class="line"><span class="string">        返回值通过wrapper的返回值返回   </span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        value = func(*args, **kwargs)  <span class="comment"># 记录业务函数返回值   </span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> is called with arguments = <span class="subst">&#123;args&#125;</span> and kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;func&#125;</span> return value <span class="subst">&#123;value&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> value  <span class="comment"># 返回业务函数的返回值  </span></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator  </span><span class="comment"># 语法糖，相当于hello = decorator(hello)   </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">sum</span> += num</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;args = <span class="subst">&#123;args&#125;</span>, kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func1(<span class="number">1</span>, <span class="number">2</span>, c=<span class="number">3</span>, d=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># args = (1, 2), kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;   </span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x013DED18&gt; is called with arguments = (1, 2) and kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;    </span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x013DED18&gt; return value 3   </span></span><br></pre></td></tr></table></figure>
+
+<p>参数<code>*args</code>用来发送一个非键值对的<strong>可变数量的参数列表</strong>给一个函数，可看作<code>tuple</code><br><code>参数**kwargs</code>允许你将不定长度的<strong>键值对</strong>作为参数传递给一个函数，可看作<code>dict</code></p>
+<h2 id="4-装饰器带参数"><a href="#4-装饰器带参数" class="headerlink" title="4. 装饰器带参数"></a>4. 装饰器带参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>(<span class="params">author</span>):  <span class="comment"># 再套一层，传入装饰器的参数   </span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">middle</span>(<span class="params">func</span>): <span class="comment"># 中间层传入业务函数</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            value = func(*args, **kwargs)  <span class="comment"># 记录业务函数返回值</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;author: &#x27;</span>, author,</span><br><span class="line">                  <span class="string">f&#x27;\n<span class="subst">&#123;func&#125;</span> is called with arguments = <span class="subst">&#123;args&#125;</span> and kwargs = <span class="subst">&#123;kwargs&#125;</span>&#x27;</span>,</span><br><span class="line">                  <span class="string">f&#x27;\nreturn value: <span class="subst">&#123;value&#125;</span>&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> value   <span class="comment"># 返回业务函数的返回值</span></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> middle</span><br><span class="line"></span><br><span class="line"><span class="comment"># @outer(&#x27;lei&#x27;)  # 语法糖，相当于func1 = outer(&#x27;lei&#x27;)(func1)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">sum</span> += num</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func1 = outer(<span class="string">&#x27;lei&#x27;</span>)(func1)</span><br><span class="line">    func1(<span class="number">1</span>, <span class="number">2</span>, c=<span class="number">3</span>, d=<span class="number">4</span>)</span><br><span class="line">    <span class="comment"># # 不用语法糖等价1：</span></span><br><span class="line">    <span class="comment"># func1 = outer(&#x27;lei&#x27;)(func1)</span></span><br><span class="line">    <span class="comment"># func1(1, 2, c=3, d=4)</span></span><br><span class="line">    <span class="comment"># # 不用语法糖等价2：</span></span><br><span class="line">    <span class="comment"># func1 = outer(&#x27;lei&#x27;)(func1)(1, 2, c=3, d=4)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果：</span></span><br><span class="line"><span class="comment"># author:  lei</span></span><br><span class="line"><span class="comment"># &lt;function func1 at 0x0192EE38&gt; is called with arguments = (1, 2) and kwargs = &#123;&#x27;c&#x27;: 3, &#x27;d&#x27;: 4&#125;</span></span><br><span class="line"><span class="comment"># return value: 3</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>八方旅人-踊子プリムロゼのテーマ（Break Side）</title>
+    <url>/2021/03/15/2021-03-15-%E3%80%90%E6%9B%B2%E5%AD%90%E3%80%91%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA/</url>
+    <content><![CDATA[<p>口琴主旋律谱</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)123456#6656</span><br><span class="line">#123456【1】632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">256#6【1】#66【2】656542</span><br><span class="line">2#22#24525#665#456</span><br><span class="line">256#66554</span><br><span class="line">#22#24525#6#6【1】#66</span><br></pre></td></tr></table></figure>
+
+<p>附上各个版本演奏示例</p>
+<span id="more"></span>
+
+<h1 id="八方旅人-普利姆萝洁-踊子プリムロゼのテーマ"><a href="#八方旅人-普利姆萝洁-踊子プリムロゼのテーマ" class="headerlink" title="八方旅人 普利姆萝洁 踊子プリムロゼのテーマ"></a>八方旅人 普利姆萝洁 踊子プリムロゼのテーマ</h1><h1 id="八方旅人-舞娘-摩訶不思議の舞"><a href="#八方旅人-舞娘-摩訶不思議の舞" class="headerlink" title="八方旅人 - 舞娘 - 摩訶不思議の舞"></a>八方旅人 - 舞娘 - 摩訶不思議の舞</h1><h1 id="八方旅人-踊子プリムロゼのテーマ（Break-Side）"><a href="#八方旅人-踊子プリムロゼのテーマ（Break-Side）" class="headerlink" title="八方旅人-踊子プリムロゼのテーマ（Break Side）"></a>八方旅人-踊子プリムロゼのテーマ（Break Side）</h1><p>别名太多日文也看不懂orz，就全部列上来了嘿嘿。</p>
+<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>这个应该是原版吧。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=865857528&auto=0&height=66"></iframe>
+
+<p>手风琴版真的很好听啊</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1376159751&auto=0&height=66"></iframe>
+
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>手风琴版本</p>
+<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=57689073&bvid=BV1t4411w7Q4&cid=100695977&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>口琴版本</p>
+<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=63245842&bvid=BV194411D7re&cid=109840071&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>B站上的参考总谱，版本不太一样但问题不大。</p>
+<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=245294939&bvid=BV18v411r7V4&cid=258481280&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>  
+
+<h3 id="谱"><a href="#谱" class="headerlink" title="谱"></a>谱</h3><p>口琴主旋律谱</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)123456#6656</span><br><span class="line">#123456【1】632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">256#6【1】#66【2】656542</span><br><span class="line">2#22#24525#665#456</span><br><span class="line">256#66554</span><br><span class="line">#22#24525#6#6【1】#66</span><br></pre></td></tr></table></figure>
+
+<p>最后一个视频里的谱子pdf文件请点击<a href="../../../../file/%E8%B8%8A%E5%AD%90%E3%83%97%E3%83%AA%E3%83%A0%E3%83%AD%E3%82%BC%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%88Break_Side%EF%BC%89.pdf">这里</a>查看，供参考。</p>
+<p>或者点击<a class="link"   href="https://maiimg.com/pdf/?e=ag8XdjcGk9uucm" >这里<i class="fas fa-external-link-alt"></i></a>查看。</p>
+<hr>
+<h3 id="重奏编排"><a href="#重奏编排" class="headerlink" title="重奏编排"></a>重奏编排</h3><p>目前已有的资源都列出来了，等待重奏改编。（应该不咕🕊）</p>
+]]></content>
+      <categories>
+        <category>收藏</category>
+        <category>music</category>
+      </categories>
+      <tags>
+        <tag>music</tag>
+        <tag>口琴</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>尝试写点东西</title>
+    <url>/2021/03/06/2021-03-05-%E5%B0%9D%E8%AF%95%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF/</url>
+    <content><![CDATA[<h1 id="hi，这里是我的博客"><a href="#hi，这里是我的博客" class="headerlink" title="hi，这里是我的博客"></a>hi，这里是我的博客</h1><p>终于把个人网站搭建起来了！真是不容易呢，有这个想法很久了，走了很多弯路，最后终于还是做出来了。还不太完善，日后会一边写内容一边将网站继续完善完善。</p>
+<span id="more"></span>
+
+<h2 id="博客项目"><a href="#博客项目" class="headerlink" title="博客项目"></a>博客项目</h2><p>不得不感叹GitHub太强了！尝试过一些其他的方式，最后还是选择了白嫖<del>(bushi)</del> 。</p>
+<p>这里是我的<a class="link"   href="https://github.com/lei-wei/lei-wei.github.io" >博客项目主页<i class="fas fa-external-link-alt"></i></a>，折腾很麻烦，但我还是折腾了很久。目前看得懂部分的不多，目标是把相关的技术达到会使用的程度，然后把我的博客再完全个人定制一下。</p>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名是<a class="link"   href="https://wanwang.aliyun.com/" >阿里云<i class="fas fa-external-link-alt"></i></a>上首年五块钱买的，起名字的时候还是小小纠结了一下，转念一想五块钱还要什么自行车！于是简单粗暴地整就完了。</p>
+<h2 id="总想写点什么东西"><a href="#总想写点什么东西" class="headerlink" title="总想写点什么东西"></a>总想写点什么东西</h2><hr>
+<p>博客说到底也就是一个特殊一点的展示信息的平台，重要的还是内容，所以接下来不出意外的话我会尽可能地做一些尝试，往网站上推一些奇奇怪怪的内容，不要太在意哈。</p>
+<h2 id="一些计划"><a href="#一些计划" class="headerlink" title="一些计划"></a>一些计划</h2><p>日常琐碎的会随便写写，想到啥写啥，不会有什么顾忌。</p>
+<p>包括</p>
+<ul>
+<li>日常/回忆录</li>
+<li>成体系的学习笔记</li>
+<li>不成熟的想法，希望它们能慢慢变得成熟</li>
+</ul>
+<hr>
+<p>写完了的东西会不定期修改整理，自己整的好处就在于——我有完整的控制权，不会留下什么黑历史的~（也许）</p>
+<ul>
+<li>太琐碎的也许会删掉（不会的）</li>
+<li>类似美食之类的，可能会合并内容做成长篇</li>
+<li>一些的想法心路，会根据tag标签功能做成集合吧，</li>
+<li>个人回忆录系列</li>
+</ul>
+<p>具体怎么做谁知道呢，哪来那么多规则，写了再说吧！</p>
+<p>就从这一篇开始。</p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我被催更了</title>
     <url>/2021/03/13/2021-03-14-%E5%82%AC%E6%9B%B4/</url>
     <content><![CDATA[<h1 id="催更"><a href="#催更" class="headerlink" title="催更"></a>催更</h1><p>被催更了，不是别人，是被我自己催更了。建了个网站，买了个域名没多久，还清晰记得之前计划写博客时的雄心壮志，现在已经有一些时日没写作更新了，日日烦恼着该放些什么东西上去，也算是体会了一把内容创作者的不易。</p>
@@ -132,6 +174,65 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记这两周折腾博客的经历</title>
+    <url>/2021/03/20/2021-03-20-%E8%AE%B0%E8%BF%99%E4%B8%A4%E5%91%A8%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%BB%8F%E5%8E%86/</url>
+    <content><![CDATA[<blockquote>
+<p>希望在这时候并不是个好东西，它让我每次在快要放弃的时候，给我一点成就感和坚持下去的信念，让我顺着好奇心和侥幸心理的驱使，在这条看不到前方的路上继续摸索前行——纵使一路荆棘伤痕累累。直到像这次一样撞上南墙，亦或是失足掉下深渊。  </p>
+</blockquote>
+<h1 id="记这两周折腾博客的经历"><a href="#记这两周折腾博客的经历" class="headerlink" title="记这两周折腾博客的经历"></a>记这两周折腾博客的经历</h1><p>过去的两周里我开始疯狂沉迷于搭建博客，其实这个想法很早之前就有了，想整的时候没时间，有空的时候又太懒。。。所以一直往后拖，到现在终于做了出来。做出来之后写了四篇吧，也没写很多的内容，然后就对搭博客本身的技术起了浓厚的兴趣，从此开始了为期两周多的踩坑之旅。</p>
+<span id="more"></span>
+
+<h2 id="起初"><a href="#起初" class="headerlink" title="起初"></a>起初</h2><p>起初是看到一个教程，教怎么利用GitHub的<code>GitHub page</code>功能搭建免费的博客，跟着教程弄了一两天，终于弄出来了一个博客雏形，漂亮简洁的界面加上简单方便的用<code>git</code>的文本管理方式，写了几篇尝试一下熟悉流程。</p>
+<p>这里就有很多东西可以说了，依托GitHub的技术，得去学习这个“全球最大的同性交友网站”怎么使用吧，注册之后有很完整方便的流程引导，很完善——除了一个问题，网站是全英文的。于是耐着性子本着练习阅读英文文档的想法，老老实实跟着教程走了一遍，总算知道这个神奇的网站大概是个什么样子，还有GitHub的立身根本<code>git</code>是个什么技术以及使用流程了。（插个题外话，熟悉GitHub之后我真的感叹它太强了，微软太强了。）</p>
+<p>其实GitHub网站和<code>git</code>的学习是在寒假进行的，但是由于当时只是学习没有真正使用，忘得很快，再后面搭建blog使用GitHub的时候完全是重新学了一遍，对，就是很耗时间而且效率很低，做了无用功。而且学了一堆<code>git</code>的指令后，觉得命令行比较麻烦想试试图形界面，然后就发现了GitHub Desktop这个神奇的软件，终于不用敲命令行了，方便太多，但是使用的时候心中还是得有个完整的<code>git</code>思路。</p>
+<p>往后就是<code>markdown</code>了，作为一种轻量级标记语言，深受广大程序员的喜爱。学习这个倒是不难，语法很简单，但是真正使用起来，去换一个打字书写习惯，还是需要时间去适应的。几乎是在写每一篇的时候都刻意的去实现一些不同的东西，用会了也就能学到了。</p>
+<ul>
+<li>在csgo的文章中主要学了更新blog推文的方法，以及markdown基本用法；</li>
+<li>在襄阳牛肉面的文章中学了插入图片，以及使用图床；</li>
+<li>在python装饰器的文章中学习了插入代码块；</li>
+<li>在乐谱展示中学了利用插入<code>html</code>语言中的<code>ifram</code>标签，来尝试插入音乐和视频。</li>
+</ul>
+<p>此外，最近在折腾的时候，学了利用GitHub和picgo以及Typora搭建免费便捷的图床。</p>
+<p>这就是我的博客初体验，至此一切都还算正常，但后面就慢慢开始不对劲了。</p>
+<h2 id="折腾"><a href="#折腾" class="headerlink" title="折腾"></a>折腾</h2><p>想想也是挺神奇的，本来是想写博客，到头来变成了研究搭建博客本身的技术，而不是专注于博客内容。其实我还是想写博客内容的，甚至专门整了一个利于大文档结构的<code>Jekyll</code>模板——<code>Just-the-docs</code>，如果写的内容够多，应该能成系统化吧，到时候做一个打的说明文档，亦或是回忆录，都ok。</p>
+<p>博客弄出来了会使用了，可我还是不满足，也没有什么大毛病——现在想想都是写无伤大雅的小毛病，但恰恰是这种无法完全掌控的感觉，让我一定要研究个明白才甘心。于是后面尝试修改本地<code>host</code>文件提高GitHub访问速度以及显示图片的问题——失败；尝试本地搭建<code>Jekyll</code>本地运行环境——失败；因为<code>Jekyll</code>官方不支持Windows所以尝试了<code>wsl</code>（Windows subsystem for Linux）——成功，但是在Linux环境搭建<code>Jekyll</code>本地运行环境失败，Linux我更不会用，所以还是失败，最后电脑重启之后<code>Jekyll</code>居然就安装成功了，就，挺突然的，也很无语，但是最后试了很久发现安装的依赖包太多太杂了，和GitHub上托管用的不一样，所以还是失败，最后也还是只能用GitHub线上调试——即本地修改文件，上传到网站，等一会儿刷新几次才能看到结果，非常的低效，为了解决这个低效我饶了这么一大圈，最后还是回到了低效的原点。</p>
+<p>最初用的模板有一些小bug，就像去修改——不就是一堆程序嘛。但这是网站前端程序，和我平时熟知的算法程序完全就不是一个领域，太难了，各种尝试、踩坑、根据英文说明文档从头配置文件，但总是有问题无法解决，而且因为上面说过的本地调试环境搭建失败的问题，改动一下看到结果太麻烦了，太低效了，就这样挣扎了好几天，最后压倒我的那根稻草是：本地修改终于好了没有问题了，上传到线上，显示错误，bug，而且是我完全没有头绪的bug。后来我甚至想这种完全没有头绪的问题是不是早点出现比较好，因为前面出现的问题都是有头绪的，跟着那一点头绪多绕绕弯子总有办法解决，但解决之后总是有更多的问题跟在后面。希望在这时候并不是个好东西，它让我每次在快要放弃的时候，给我一点成就感和坚持下去的信念，让我顺着好奇心和侥幸心理的驱使，在这条看不到前方的路上继续摸索前行——纵使一路荆棘伤痕累累。直到像这次一样撞上南墙，亦或是失足掉下深渊。其实我早该知道，对于前端知识异常匮乏的我来说，要把这么一个大项目看懂知道问题出现在哪里并且修改正确，几乎是一个不可能完成的任务。但有时候就是这么不够理智。最后还是拿的别人的源代码，除了文章、图片以及少量的配置修改外，其他的根本不敢动——又回到了原点。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下这段时间搞博客的经历：</p>
+<ol>
+<li>尝试本地调试环境失败，回归低效的线上调试。</li>
+<li>尝试修改代码配置失败，回归直接用别人的代码。</li>
+</ol>
+<p>但也不是完全没成果：</p>
+<ol>
+<li>熟悉GitHub流程及使用方式；</li>
+<li>熟悉Jekyll博客的使用方式；</li>
+<li>熟悉markdown语法，不出意外的话今后会经常用它来写东西；</li>
+<li>接触了站点文件的结构，配置方法；</li>
+<li>接触了一些前端知识；</li>
+<li>最终有了三个比较稳定的博客界面：<ul>
+<li><a href="https://leiwei.xyz/">https://leiwei.xyz/</a>主博客主页</li>
+<li><a href="https://leiwei.xyz/music-display/">https://leiwei.xyz/music-display/</a>社团乐曲展示用</li>
+<li><a href="https://leiwei.xyz/just-the-docs/">https://leiwei.xyz/just-the-docs/</a>结构化文档框架</li>
+</ul>
+</li>
+</ol>
+<h2 id="今后"><a href="#今后" class="headerlink" title="今后"></a>今后</h2><p>比较稳定的平台搭建至此告一段落，不出意外的话今后就多写写内容，尽量不再去纠结配置、代码的事情了。写作也是个耗时耗力的事情，比如这一篇到这里2200多字，写的已经很快了，也没有很多的修改，还是花了我快两个小时。这种东西写了留下了终究还是有意义的吧，我也会尽量坚持下去。</p>
+<p>这两周的经历，不理智、无用功、低效、产出低，所有的空闲时间几乎都花在这个上面了，B站都很久没刷了。但是这样也有好处，至少我一个人安静瞎捣鼓、踩坑时学到的这些东西，是很难去忘记了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/lei-wei/pic_bed/img/post-bg-Sakura.jpg"
+                     
+                ></p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>心路</tag>
       </tags>
   </entry>
   <entry>
@@ -169,48 +270,6 @@
                 ></p>
 <center>《单簧管波尔卡》口琴四重奏谱（供参考）
 </center>
-]]></content>
-      <categories>
-        <category>收藏</category>
-        <category>music</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
-        <tag>口琴</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>八方旅人-踊子プリムロゼのテーマ（Break Side）</title>
-    <url>/2021/03/15/2021-03-15-%E3%80%90%E6%9B%B2%E5%AD%90%E3%80%91%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA/</url>
-    <content><![CDATA[<p>口琴主旋律谱</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)123456#6656</span><br><span class="line">#123456【1】632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">256#6【1】#66【2】656542</span><br><span class="line">2#22#24525#665#456</span><br><span class="line">256#66554</span><br><span class="line">#22#24525#6#6【1】#66</span><br></pre></td></tr></table></figure>
-
-<p>附上各个版本演奏示例</p>
-<span id="more"></span>
-
-<h1 id="八方旅人-普利姆萝洁-踊子プリムロゼのテーマ"><a href="#八方旅人-普利姆萝洁-踊子プリムロゼのテーマ" class="headerlink" title="八方旅人 普利姆萝洁 踊子プリムロゼのテーマ"></a>八方旅人 普利姆萝洁 踊子プリムロゼのテーマ</h1><h1 id="八方旅人-舞娘-摩訶不思議の舞"><a href="#八方旅人-舞娘-摩訶不思議の舞" class="headerlink" title="八方旅人 - 舞娘 - 摩訶不思議の舞"></a>八方旅人 - 舞娘 - 摩訶不思議の舞</h1><h1 id="八方旅人-踊子プリムロゼのテーマ（Break-Side）"><a href="#八方旅人-踊子プリムロゼのテーマ（Break-Side）" class="headerlink" title="八方旅人-踊子プリムロゼのテーマ（Break Side）"></a>八方旅人-踊子プリムロゼのテーマ（Break Side）</h1><p>别名太多日文也看不懂orz，就全部列上来了嘿嘿。</p>
-<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>这个应该是原版吧。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=865857528&auto=0&height=66"></iframe>
-
-<p>手风琴版真的很好听啊</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1376159751&auto=0&height=66"></iframe>
-
-<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>手风琴版本</p>
-<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=57689073&bvid=BV1t4411w7Q4&cid=100695977&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<p>口琴版本</p>
-<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=63245842&bvid=BV194411D7re&cid=109840071&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<p>B站上的参考总谱，版本不太一样但问题不大。</p>
-<iframe height=198     width=352 src="//player.bilibili.com/player.html?aid=245294939&bvid=BV18v411r7V4&cid=258481280&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>  
-
-<h3 id="谱"><a href="#谱" class="headerlink" title="谱"></a>谱</h3><p>口琴主旋律谱</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">(6)234543632321(6)</span><br><span class="line">(5)(6)(#6)123456#6656</span><br><span class="line">#123456【1】632321(6)</span><br><span class="line">(5)(6)(#6)(6)(#6)1234323212</span><br><span class="line">256#6【1】#66【2】656542</span><br><span class="line">2#22#24525#665#456</span><br><span class="line">256#66554</span><br><span class="line">#22#24525#6#6【1】#66</span><br></pre></td></tr></table></figure>
-
-<p>最后一个视频里的谱子pdf文件请点击<a href="../../../../file/%E8%B8%8A%E5%AD%90%E3%83%97%E3%83%AA%E3%83%A0%E3%83%AD%E3%82%BC%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%88Break_Side%EF%BC%89.pdf">这里</a>查看，供参考。</p>
-<p>或者点击<a class="link"   href="https://maiimg.com/pdf/?e=ag8XdjcGk9uucm" >这里<i class="fas fa-external-link-alt"></i></a>查看。</p>
-<hr>
-<h3 id="重奏编排"><a href="#重奏编排" class="headerlink" title="重奏编排"></a>重奏编排</h3><p>目前已有的资源都列出来了，等待重奏改编。（应该不咕🕊）</p>
 ]]></content>
       <categories>
         <category>收藏</category>
@@ -283,65 +342,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记这两周折腾博客的经历</title>
-    <url>/2021/03/20/2021-03-20-%E8%AE%B0%E8%BF%99%E4%B8%A4%E5%91%A8%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%BB%8F%E5%8E%86/</url>
-    <content><![CDATA[<blockquote>
-<p>希望在这时候并不是个好东西，它让我每次在快要放弃的时候，给我一点成就感和坚持下去的信念，让我顺着好奇心和侥幸心理的驱使，在这条看不到前方的路上继续摸索前行——纵使一路荆棘伤痕累累。直到像这次一样撞上南墙，亦或是失足掉下深渊。  </p>
-</blockquote>
-<h1 id="记这两周折腾博客的经历"><a href="#记这两周折腾博客的经历" class="headerlink" title="记这两周折腾博客的经历"></a>记这两周折腾博客的经历</h1><p>过去的两周里我开始疯狂沉迷于搭建博客，其实这个想法很早之前就有了，想整的时候没时间，有空的时候又太懒。。。所以一直往后拖，到现在终于做了出来。做出来之后写了四篇吧，也没写很多的内容，然后就对搭博客本身的技术起了浓厚的兴趣，从此开始了为期两周多的踩坑之旅。</p>
-<span id="more"></span>
-
-<h2 id="起初"><a href="#起初" class="headerlink" title="起初"></a>起初</h2><p>起初是看到一个教程，教怎么利用GitHub的<code>GitHub page</code>功能搭建免费的博客，跟着教程弄了一两天，终于弄出来了一个博客雏形，漂亮简洁的界面加上简单方便的用<code>git</code>的文本管理方式，写了几篇尝试一下熟悉流程。</p>
-<p>这里就有很多东西可以说了，依托GitHub的技术，得去学习这个“全球最大的同性交友网站”怎么使用吧，注册之后有很完整方便的流程引导，很完善——除了一个问题，网站是全英文的。于是耐着性子本着练习阅读英文文档的想法，老老实实跟着教程走了一遍，总算知道这个神奇的网站大概是个什么样子，还有GitHub的立身根本<code>git</code>是个什么技术以及使用流程了。（插个题外话，熟悉GitHub之后我真的感叹它太强了，微软太强了。）</p>
-<p>其实GitHub网站和<code>git</code>的学习是在寒假进行的，但是由于当时只是学习没有真正使用，忘得很快，再后面搭建blog使用GitHub的时候完全是重新学了一遍，对，就是很耗时间而且效率很低，做了无用功。而且学了一堆<code>git</code>的指令后，觉得命令行比较麻烦想试试图形界面，然后就发现了GitHub Desktop这个神奇的软件，终于不用敲命令行了，方便太多，但是使用的时候心中还是得有个完整的<code>git</code>思路。</p>
-<p>往后就是<code>markdown</code>了，作为一种轻量级标记语言，深受广大程序员的喜爱。学习这个倒是不难，语法很简单，但是真正使用起来，去换一个打字书写习惯，还是需要时间去适应的。几乎是在写每一篇的时候都刻意的去实现一些不同的东西，用会了也就能学到了。</p>
-<ul>
-<li>在csgo的文章中主要学了更新blog推文的方法，以及markdown基本用法；</li>
-<li>在襄阳牛肉面的文章中学了插入图片，以及使用图床；</li>
-<li>在python装饰器的文章中学习了插入代码块；</li>
-<li>在乐谱展示中学了利用插入<code>html</code>语言中的<code>ifram</code>标签，来尝试插入音乐和视频。</li>
-</ul>
-<p>此外，最近在折腾的时候，学了利用GitHub和picgo以及Typora搭建免费便捷的图床。</p>
-<p>这就是我的博客初体验，至此一切都还算正常，但后面就慢慢开始不对劲了。</p>
-<h2 id="折腾"><a href="#折腾" class="headerlink" title="折腾"></a>折腾</h2><p>想想也是挺神奇的，本来是想写博客，到头来变成了研究搭建博客本身的技术，而不是专注于博客内容。其实我还是想写博客内容的，甚至专门整了一个利于大文档结构的<code>Jekyll</code>模板——<code>Just-the-docs</code>，如果写的内容够多，应该能成系统化吧，到时候做一个打的说明文档，亦或是回忆录，都ok。</p>
-<p>博客弄出来了会使用了，可我还是不满足，也没有什么大毛病——现在想想都是写无伤大雅的小毛病，但恰恰是这种无法完全掌控的感觉，让我一定要研究个明白才甘心。于是后面尝试修改本地<code>host</code>文件提高GitHub访问速度以及显示图片的问题——失败；尝试本地搭建<code>Jekyll</code>本地运行环境——失败；因为<code>Jekyll</code>官方不支持Windows所以尝试了<code>wsl</code>（Windows subsystem for Linux）——成功，但是在Linux环境搭建<code>Jekyll</code>本地运行环境失败，Linux我更不会用，所以还是失败，最后电脑重启之后<code>Jekyll</code>居然就安装成功了，就，挺突然的，也很无语，但是最后试了很久发现安装的依赖包太多太杂了，和GitHub上托管用的不一样，所以还是失败，最后也还是只能用GitHub线上调试——即本地修改文件，上传到网站，等一会儿刷新几次才能看到结果，非常的低效，为了解决这个低效我饶了这么一大圈，最后还是回到了低效的原点。</p>
-<p>最初用的模板有一些小bug，就像去修改——不就是一堆程序嘛。但这是网站前端程序，和我平时熟知的算法程序完全就不是一个领域，太难了，各种尝试、踩坑、根据英文说明文档从头配置文件，但总是有问题无法解决，而且因为上面说过的本地调试环境搭建失败的问题，改动一下看到结果太麻烦了，太低效了，就这样挣扎了好几天，最后压倒我的那根稻草是：本地修改终于好了没有问题了，上传到线上，显示错误，bug，而且是我完全没有头绪的bug。后来我甚至想这种完全没有头绪的问题是不是早点出现比较好，因为前面出现的问题都是有头绪的，跟着那一点头绪多绕绕弯子总有办法解决，但解决之后总是有更多的问题跟在后面。希望在这时候并不是个好东西，它让我每次在快要放弃的时候，给我一点成就感和坚持下去的信念，让我顺着好奇心和侥幸心理的驱使，在这条看不到前方的路上继续摸索前行——纵使一路荆棘伤痕累累。直到像这次一样撞上南墙，亦或是失足掉下深渊。其实我早该知道，对于前端知识异常匮乏的我来说，要把这么一个大项目看懂知道问题出现在哪里并且修改正确，几乎是一个不可能完成的任务。但有时候就是这么不够理智。最后还是拿的别人的源代码，除了文章、图片以及少量的配置修改外，其他的根本不敢动——又回到了原点。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下这段时间搞博客的经历：</p>
-<ol>
-<li>尝试本地调试环境失败，回归低效的线上调试。</li>
-<li>尝试修改代码配置失败，回归直接用别人的代码。</li>
-</ol>
-<p>但也不是完全没成果：</p>
-<ol>
-<li>熟悉GitHub流程及使用方式；</li>
-<li>熟悉Jekyll博客的使用方式；</li>
-<li>熟悉markdown语法，不出意外的话今后会经常用它来写东西；</li>
-<li>接触了站点文件的结构，配置方法；</li>
-<li>接触了一些前端知识；</li>
-<li>最终有了三个比较稳定的博客界面：<ul>
-<li><a href="https://leiwei.xyz/">https://leiwei.xyz/</a>主博客主页</li>
-<li><a href="https://leiwei.xyz/music-display/">https://leiwei.xyz/music-display/</a>社团乐曲展示用</li>
-<li><a href="https://leiwei.xyz/just-the-docs/">https://leiwei.xyz/just-the-docs/</a>结构化文档框架</li>
-</ul>
-</li>
-</ol>
-<h2 id="今后"><a href="#今后" class="headerlink" title="今后"></a>今后</h2><p>比较稳定的平台搭建至此告一段落，不出意外的话今后就多写写内容，尽量不再去纠结配置、代码的事情了。写作也是个耗时耗力的事情，比如这一篇到这里2200多字，写的已经很快了，也没有很多的修改，还是花了我快两个小时。这种东西写了留下了终究还是有意义的吧，我也会尽量坚持下去。</p>
-<p>这两周的经历，不理智、无用功、低效、产出低，所有的空闲时间几乎都花在这个上面了，B站都很久没刷了。但是这样也有好处，至少我一个人安静瞎捣鼓、踩坑时学到的这些东西，是很难去忘记了。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/lei-wei/pic_bed/img/post-bg-Sakura.jpg"
-                     
-                ></p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>心路</tag>
       </tags>
   </entry>
   <entry>
@@ -454,49 +454,8 @@
       </tags>
   </entry>
   <entry>
-    <title>最近想听的歌（长期更新）</title>
-    <url>/2021/04/26/2021-04-26-%E6%9C%80%E8%BF%91%E6%83%B3%E5%90%AC%E7%9A%84%E6%AD%8C/</url>
-    <content><![CDATA[<p>因为都分布在不同平台不同形式，这样可以做一个合集方便看hhh</p>
-<p>能放在这里的，都是最近我认为很有味道还没听腻的那种，若是哪天听腻了就会默默删掉了。</p>
-<p>当然有些歌是听不腻的，若是听多了印在脑子里了，可以独自慢慢回味，也就没有放在这里的必要了。</p>
-<span id="more"></span>
-
-<h3 id="《亡命之徒》（《出发》）——纵贯线"><a href="#《亡命之徒》（《出发》）——纵贯线" class="headerlink" title="《亡命之徒》（《出发》）——纵贯线"></a>《亡命之徒》（《出发》）——纵贯线</h3><iframe src="//player.bilibili.com/player.html?aid=247954746&bvid=BV1bv411j72a&cid=332732947&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="Plastic-Love-塑料爱"><a href="#Plastic-Love-塑料爱" class="headerlink" title="Plastic Love 塑料爱"></a>Plastic Love 塑料爱</h3><iframe src="//player.bilibili.com/player.html?aid=31206044&bvid=BV1JW411d7GA&cid=54519736&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<iframe src="//player.bilibili.com/player.html?aid=75885850&bvid=BV1vJ411U7Ji&cid=132451138&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《恋爱中的犀牛》-《氧气》"><a href="#《恋爱中的犀牛》-《氧气》" class="headerlink" title="《恋爱中的犀牛》+《氧气》"></a>《恋爱中的犀牛》+《氧气》</h3><p>03版恋爱的犀牛唱段，郝蕾演唱。</p>
-<iframe src="//player.bilibili.com/player.html?aid=7285048&bvid=BV1Gs411s7Mi&cid=11908586&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《白日梦蓝》——刺猬乐队"><a href="#《白日梦蓝》——刺猬乐队" class="headerlink" title="《白日梦蓝》——刺猬乐队"></a>《白日梦蓝》——刺猬乐队</h3><p>特指这个现场版，大提琴和吉他的配合听着有一种梦幻的感觉。</p>
-<iframe src="//player.bilibili.com/player.html?aid=668247016&bvid=BV1ia4y1e79T&cid=191610558&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《生之响往》——刺猬乐队"><a href="#《生之响往》——刺猬乐队" class="headerlink" title="《生之响往》——刺猬乐队"></a>《生之响往》——刺猬乐队</h3><iframe src="//player.bilibili.com/player.html?aid=797892538&bvid=BV18y4y167pk&cid=260758347&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《生如夏花》《Forever-Young》《平凡之路》——朴树"><a href="#《生如夏花》《Forever-Young》《平凡之路》——朴树" class="headerlink" title="《生如夏花》《Forever Young》《平凡之路》——朴树"></a>《生如夏花》《Forever Young》《平凡之路》——朴树</h3><p>朴树身上总有一种令人向往的纯真和真挚。</p>
-<iframe src="//player.bilibili.com/player.html?aid=841303764&bvid=BV1u54y1q79i&cid=211384045&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《-No-Fear-In-My-Heart-》——朴树"><a href="#《-No-Fear-In-My-Heart-》——朴树" class="headerlink" title="《 No Fear In My Heart 》——朴树"></a>《 No Fear In My Heart 》——朴树</h3><p>你在害怕什么 ~</p>
-<p>神级现场版，每次看和看上面的刺猬乐队的歌的时候，总感觉得去补一补《乐队的夏天》第一季。</p>
-<iframe src="//player.bilibili.com/player.html?aid=83340529&bvid=BV1tJ411H7h4&cid=142435321&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="《波西米亚狂想曲》——Queen"><a href="#《波西米亚狂想曲》——Queen" class="headerlink" title="《波西米亚狂想曲》——Queen"></a>《波西米亚狂想曲》——Queen</h3><p>我曾在这首歌和《 No Fear In My Heart 》中寻找救赎——记忆中也就只有这两首歌。</p>
-<iframe src="//player.bilibili.com/player.html?aid=501148064&bvid=BV1VK411u7vy&cid=282062140&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-]]></content>
-      <categories>
-        <category>收藏</category>
-        <category>music</category>
-      </categories>
-      <tags>
-        <tag>音乐</tag>
-        <tag>娱乐</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习笔记</title>
-    <url>/2021/05/08/2021-05-08-C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/2021/05/08/2021-05-08-C%20%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>比较乱，有空再整理~</p>
 <span id="more"></span>
 
@@ -760,65 +719,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python学习笔记</title>
-    <url>/2021/05/08/2021-05-08-python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>比较乱，有空再整理~</p>
-<span id="more"></span>
-
-<h1 id="python学习笔记"><a href="#python学习笔记" class="headerlink" title="python学习笔记"></a>python学习笔记</h1><h2 id="使用镜像安装包"><a href="#使用镜像安装包" class="headerlink" title="使用镜像安装包"></a>使用镜像安装包</h2><p>安装包时国外服务器有时访问很慢，这里可以使用国内镜像</p>
-<p>给<code>pip</code>命令添加<code>-i</code>参数，后接镜像索引的url，例如：</p>
-<p><code>https://pypi.tuna.tsinghua.edu.cn/simple gensim</code></p>
-<h2 id="全局变量关键字global"><a href="#全局变量关键字global" class="headerlink" title="全局变量关键字global"></a>全局变量关键字<code>global</code></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cnt = <span class="number">0</span> <span class="comment"># 计数器</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_cnt</span>():</span><br><span class="line">  <span class="comment">#函数内对全局变量操作时，显示声明这是一个全局变量</span></span><br><span class="line">  <span class="keyword">global</span> cnt</span><br><span class="line">  cnt += <span class="number">1</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_cnt</span>():</span><br><span class="line">  <span class="keyword">global</span> cnt</span><br><span class="line">  <span class="built_in">print</span>(cnt)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  show_cnt()</span><br><span class="line">  add_cnt()</span><br><span class="line">  show_cnt()</span><br><span class="line"></span><br><span class="line">\<span class="comment">#输出结果：</span></span><br><span class="line">\<span class="comment"># 0</span></span><br><span class="line">\<span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="字符串前缀u-r-b-f"><a href="#字符串前缀u-r-b-f" class="headerlink" title="字符串前缀u,r,b,f"></a>字符串前缀<code>u,r,b,f</code></h2><p><code>u</code>，后面字符串以Unicode格式编码，常用于防止中文出现的乱码问题。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">u&#x27;中文’</span></span><br></pre></td></tr></table></figure>
-
-<p><code>r</code>，纯文本？去掉反斜杠机制，常用于正则表达式re</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;\n\n\n\n”</span></span><br></pre></td></tr></table></figure>
-
-<p><code>b</code>，bytes数据类型，常用于网络编程种，浏览器、服务器的数据传输</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span> </span><br></pre></td></tr></table></figure>
-
-<p><code>f</code>，表示字符串内支持大括号内的python表达式</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">f&#x27;a = <span class="subst">&#123;a&#125;</span>’</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, <span class="built_in">id</span>, name</span>):</span><br><span class="line">        <span class="comment"># 初始化对象</span></span><br><span class="line">        self.<span class="built_in">id</span> = <span class="built_in">id</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 展示对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;id = &#x27;</span>+<span class="built_in">str</span>(self.<span class="built_in">id</span>) + <span class="string">&#x27;, name = &#x27;</span>+self.name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 调用对象方法</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;I can be called&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;my name is <span class="subst">&#123;self.name&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="number">1</span>, <span class="string">&#x27;asd&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">callable</span>(stu))  <span class="comment"># 检查对象是否可调用</span></span><br><span class="line"><span class="built_in">print</span>(stu)  <span class="comment"># 展示对象</span></span><br><span class="line">stu()  <span class="comment"># 调用对象</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># 不存在则创建文件夹</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mkdir</span>(<span class="params">path</span>):</span><br><span class="line">    isexists = os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isexists:</span><br><span class="line">        os.mkdir(path)</span><br></pre></td></tr></table></figure>
-
-<h2 id="在函数中创建函数"><a href="#在函数中创建函数" class="headerlink" title="在函数中创建函数"></a>在函数中创建函数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">shit</span>(<span class="params">a</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">good</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;good&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">bad</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;bad&quot;</span></span><br><span class="line">    <span class="keyword">return</span> good <span class="keyword">if</span> a == <span class="number">1</span> <span class="keyword">else</span> bad()</span><br><span class="line"></span><br><span class="line">s = shit(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(s)  <span class="comment"># &lt;function shit.&lt;locals&gt;.good at 0x00000259CB292DC0&gt;</span></span><br><span class="line"><span class="built_in">print</span>(s())  <span class="comment"># good</span></span><br><span class="line"><span class="built_in">print</span>(shit(<span class="number">1</span>)())  <span class="comment"># good</span></span><br><span class="line"><span class="built_in">print</span>(shit(<span class="number">0</span>))  <span class="comment"># bad</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="for-循环后的-else-语句"><a href="#for-循环后的-else-语句" class="headerlink" title="for 循环后的 else 语句"></a>for 循环后的 else 语句</h2><p>若循环正常结束，而并没有遇到<code>break</code>停下，则会跳转到后面的<code>else</code>语句。</p>
-<p>如以下寻找因数的例子，若没找到则是质数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, i):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; = &#123;&#125; * &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(i, j, i/j))</span><br><span class="line">            <span class="comment"># print(i, &#x27;equals&#x27;, j, &#x27;*&#x27;, i/j)</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">     <span class="comment"># loop fell through without finding a factor</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; is a prime number! &#x27;</span>.<span class="built_in">format</span>(i))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 is a prime number!</span></span><br><span class="line"><span class="comment"># 3 is a prime number!</span></span><br><span class="line"><span class="comment"># 4 = 2 * 2.0</span></span><br><span class="line"><span class="comment"># 4 equals 2 * 2.0</span></span><br><span class="line"><span class="comment"># 5 is a prime number!</span></span><br><span class="line"><span class="comment"># 6 = 2 * 3.0</span></span><br><span class="line"><span class="comment"># 6 equals 2 * 3.0</span></span><br><span class="line"><span class="comment"># 7 is a prime number!</span></span><br><span class="line"><span class="comment"># 8 = 2 * 4.0</span></span><br><span class="line"><span class="comment"># 8 equals 2 * 4.0</span></span><br><span class="line"><span class="comment"># 9 = 3 * 3.0</span></span><br><span class="line"><span class="comment"># 9 equals 3 * 3.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个新的笔记软件——TiddlyWiki</title>
-    <url>/2021/12/18/2021-12-18-%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94TiddlyWiki/</url>
-    <content><![CDATA[<h1 id="一个新的笔记软件"><a href="#一个新的笔记软件" class="headerlink" title="一个新的笔记软件"></a>一个新的笔记软件</h1><p>一晃半年多过去了，这个博客也荒废了好久，趁着做TiddlyWiki的时候把它再捡起来。曾经顶下的周更的目标也早就忘得一干二净，实在是愧疚。</p>
-<p>总之，我又换了一个新的笔记软件——TiddlyWiki，具体可以进里面的<code>About</code> 条目看看，反正就是很折腾，地址在这里<a class="link"   href="https://leiwei.space/wiki/" >https://leiwei.space/wiki/<i class="fas fa-external-link-alt"></i></a>，你看域名是不是很好记哈哈，也可以在友链的地方跳转，叫“胖虎的wiki笔记”。</p>
-<span id="more"></span>
-
-<p>以后有逻辑的笔记就放在那了，分类跳转做的很好，想说的话、图片展示就在这了，后面工具用顺手了再慢慢整吧。</p>
-<p>好像又给自己挖个坑，做一个网页上的图片展区，看起来好像不难，论文搞完就整。（好多事情都是说论文搞完了整，拖延的理由冠冕堂皇，要是最后咕了就当我没说吧QAQ）</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>知识整理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>天气查询邮件提醒</title>
     <url>/2021/05/30/2021-05-30-python%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</url>
     <content><![CDATA[<h1 id="天气查询邮件提醒"><a href="#天气查询邮件提醒" class="headerlink" title="天气查询邮件提醒"></a>天气查询邮件提醒</h1><h3 id="软件界面ui"><a href="#软件界面ui" class="headerlink" title="软件界面ui"></a>软件界面ui</h3><h4 id="ui设计"><a href="#ui设计" class="headerlink" title="ui设计"></a>ui设计</h4><p>用的是<code>PyQt5</code>，先用<code>Qt Designer</code>设计界面，拖动组件改属性即可，注意<code>objectName</code>一定要改，保持良好的习惯。</p>
@@ -857,91 +757,103 @@
       </tags>
   </entry>
   <entry>
-    <title>记录这几天的摆烂生活</title>
-    <url>/2022/08/31/%E8%AE%B0%E5%BD%95%E8%BF%99%E5%87%A0%E5%A4%A9%E7%9A%84%E6%91%86%E7%83%82%E7%94%9F%E6%B4%BB/</url>
-    <content><![CDATA[<blockquote>
-<p>没想好在这个地方要写什么，这个地方是设置是否也是一种累赘，下次没想好就空着吧</p>
-</blockquote>
+    <title>最近想听的歌（长期更新）</title>
+    <url>/2021/04/26/2021-04-26-%E6%9C%80%E8%BF%91%E6%83%B3%E5%90%AC%E7%9A%84%E6%AD%8C/</url>
+    <content><![CDATA[<p>因为都分布在不同平台不同形式，这样可以做一个合集方便看hhh</p>
+<p>能放在这里的，都是最近我认为很有味道还没听腻的那种，若是哪天听腻了就会默默删掉了。</p>
+<p>当然有些歌是听不腻的，若是听多了印在脑子里了，可以独自慢慢回味，也就没有放在这里的必要了。</p>
 <span id="more"></span>
 
-<p>现在是凌晨1点钟，准备写点东西再睡。</p>
-<p>我决定了要写一篇文字，主题就叫《记录这几天的摆烂生活》，决心是今天晚上走在路上的时候定下的。晚上校园里的街边没什么人，很安静，只听到风的声音，也有些喧嚣，当然也伴随着我哼歌的声音，哼的还是那一首《故乡》，没什么别的原因，只是这首歌让我很放松，今晚的经历也同样让我感到很放松，于是就这么自然而然的发生了。晚上和室友去逛了逛街，吃了顿好的，然后去赴迟到了一个半小时的约，刚好赶上伙伴在给一群孩子唱《孤勇者》，整个炸窝了，不忍破坏这样的画面，就在一旁笑着把画面录了下来。碰到了两位师弟，聊了些最近过得怎么样，教师节和中秋节送什么之类的话题。随后天色渐晚小朋友们逐渐被带着回家，人群少了下来，师弟也离去了，我跟玩音乐的几个伙伴才开始聊起来，聊着歌曲啊，找工作啊，还有关于疫情政治的，一些有的没的之类的话题。随后一起收拾东西，回住处放好，说着明天要借电动车去别处取卡宏鼓方便以后玩，就这样分别再各自离去。</p>
-<p>看着是一段很正常的经历，普通但对于当下的我却不是那么普通，因为我刚经历了一段时间的摆烂，不是一般常说的自嘲式的摆烂或者是叛逆式的不想做好的摆烂，而是将一切事情抛掷脑后完全不管放弃思考放纵自身的那种摆烂，像是在连贯的繁杂生活中给自己按下了暂停键，世界还是那个世界没有我一样转，而我就像是“请假了一段时间”一样，给自己了一段偷跑的时间，家人老师同学、论文项目找工作，这几天几乎就没想过，手机通知经常遗漏半天后才看到，天塌了那也过几天再去补，这几天就让我独自呆着，好好享受这段空闲。</p>
-<p>这段空闲的契机是因为疫情，所在的宿舍楼有人密接被拉去隔离了，于是整栋楼静默处理，通知说“除了做核酸和买饭之外不允许出楼”。现在想想，这封控也没封死，可操作的空间大了去了，可当时我醒来看到通知的一瞬间，想的是：“好吧疫情原因我只能呆在宿舍里一段时间了正好这段时间好好休息吧”，于是便继续躺下了。也是，这个疫情通知发生在返校的第一个周一，在这之前整个暑假一直在上班，在家最长休息也不超过一个星期，确实是有些累了需要一个间歇，本来找工作和去上班两件事情还推着我让我保持紧张高效率的状态，得，楼栋封控了，那我直接躺下。所有的一切都有了完美的解释，我甚至都不需要跟老师请假，就算出了什么乱子追责的时候，噢疫情封楼了没办法啊，那没事了，这段时间辛苦配合防疫吧。</p>
-<p>躺着摆烂的这段时间，是真的全身心放松的一段时间，看着剧打着游戏吃着糕点喝着肥宅快乐水，不用为了什么目标去奋斗，不用三省吾身思考下一步的打算，没有任何工作需要在这段时间去完成。每天躺着床上15个小时，全天眼睛不离开手机电脑，看了好些剧打了好多把重复的游戏，等待着时间就这么过去。</p>
-<p>封控是周一紧急下的通知，周五就解了，或者说我认为是时候回归生活了。因为并没有看到可以自由活动了的通知——想也知道这种通知容易让发通知的人担责，但时间长了所有人的生活慢慢恢复原样了，包括楼下宿管因为疫情封控收起来的小摊，这几天也重新摆了出来，进出检查的人从漫不经心到慢慢压根儿看不到人影，就知道实际上是解封了。再就是，摆烂的生活到这差不多已经够了，毕竟每天在几平米的地方蜗居着，再不活动一下感觉骨头都得散架，放纵的太多也会感到无聊和空虚，负面情绪慢慢浮现，提醒我需要去做一些实质性的事情去抵抗内心的不安情绪了。</p>
-<p>于是我走出了门，逛了逛走了走，路上想了一下回归原本我给自己规划的生活，要续上好多进行到一半的事情和即将需要开始的事情，心里瞬间涌上一丝焦虑——有太多繁杂和困难的事情需要去梳理和克服，索性把这些思绪放在一边——因为只有着手开始解决才能从根本上消解这种情绪，而开始工作至少是明天才开始的事情。和伙伴们见见面聊聊天吧，仿佛我从未离开过，一直是那个对生活充满热情，对很多话题都很能聊的人。看到这你应该明白为何今晚的普通经历很不普通，也感谢从前的积极向上的我，让今晚的特殊经历看起来是那么的寻常。</p>
+<h3 id="《亡命之徒》（《出发》）——纵贯线"><a href="#《亡命之徒》（《出发》）——纵贯线" class="headerlink" title="《亡命之徒》（《出发》）——纵贯线"></a>《亡命之徒》（《出发》）——纵贯线</h3><iframe src="//player.bilibili.com/player.html?aid=247954746&bvid=BV1bv411j72a&cid=332732947&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="Plastic-Love-塑料爱"><a href="#Plastic-Love-塑料爱" class="headerlink" title="Plastic Love 塑料爱"></a>Plastic Love 塑料爱</h3><iframe src="//player.bilibili.com/player.html?aid=31206044&bvid=BV1JW411d7GA&cid=54519736&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=75885850&bvid=BV1vJ411U7Ji&cid=132451138&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《恋爱中的犀牛》-《氧气》"><a href="#《恋爱中的犀牛》-《氧气》" class="headerlink" title="《恋爱中的犀牛》+《氧气》"></a>《恋爱中的犀牛》+《氧气》</h3><p>03版恋爱的犀牛唱段，郝蕾演唱。</p>
+<iframe src="//player.bilibili.com/player.html?aid=7285048&bvid=BV1Gs411s7Mi&cid=11908586&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《白日梦蓝》——刺猬乐队"><a href="#《白日梦蓝》——刺猬乐队" class="headerlink" title="《白日梦蓝》——刺猬乐队"></a>《白日梦蓝》——刺猬乐队</h3><p>特指这个现场版，大提琴和吉他的配合听着有一种梦幻的感觉。</p>
+<iframe src="//player.bilibili.com/player.html?aid=668247016&bvid=BV1ia4y1e79T&cid=191610558&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《生之响往》——刺猬乐队"><a href="#《生之响往》——刺猬乐队" class="headerlink" title="《生之响往》——刺猬乐队"></a>《生之响往》——刺猬乐队</h3><iframe src="//player.bilibili.com/player.html?aid=797892538&bvid=BV18y4y167pk&cid=260758347&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《生如夏花》《Forever-Young》《平凡之路》——朴树"><a href="#《生如夏花》《Forever-Young》《平凡之路》——朴树" class="headerlink" title="《生如夏花》《Forever Young》《平凡之路》——朴树"></a>《生如夏花》《Forever Young》《平凡之路》——朴树</h3><p>朴树身上总有一种令人向往的纯真和真挚。</p>
+<iframe src="//player.bilibili.com/player.html?aid=841303764&bvid=BV1u54y1q79i&cid=211384045&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《-No-Fear-In-My-Heart-》——朴树"><a href="#《-No-Fear-In-My-Heart-》——朴树" class="headerlink" title="《 No Fear In My Heart 》——朴树"></a>《 No Fear In My Heart 》——朴树</h3><p>你在害怕什么 ~</p>
+<p>神级现场版，每次看和看上面的刺猬乐队的歌的时候，总感觉得去补一补《乐队的夏天》第一季。</p>
+<iframe src="//player.bilibili.com/player.html?aid=83340529&bvid=BV1tJ411H7h4&cid=142435321&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="《波西米亚狂想曲》——Queen"><a href="#《波西米亚狂想曲》——Queen" class="headerlink" title="《波西米亚狂想曲》——Queen"></a>《波西米亚狂想曲》——Queen</h3><p>我曾在这首歌和《 No Fear In My Heart 》中寻找救赎——记忆中也就只有这两首歌。</p>
+<iframe src="//player.bilibili.com/player.html?aid=501148064&bvid=BV1VK411u7vy&cid=282062140&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 ]]></content>
       <categories>
-        <category>记录</category>
+        <category>收藏</category>
+        <category>music</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>音乐</tag>
+        <tag>娱乐</tag>
       </tags>
   </entry>
   <entry>
-    <title>没有什么值得我放弃其他所有事情来达到所谓的“竭尽全力”</title>
-    <url>/2022/03/25/%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E6%88%91%E6%94%BE%E5%85%B6%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E4%BA%8B%E6%83%85%E6%9D%A5%E8%BE%BE%E5%88%B0%E6%89%80%E8%B0%93%E7%9A%84%E2%80%9C%E7%AB%AD%E5%B0%BD%E5%85%A8%E5%8A%9B%E2%80%9D/</url>
-    <content><![CDATA[<blockquote>
-<p>没有任何一件事情值得放弃其他所有的事情来做到所谓的“竭尽全力”，以“闭关”的方式对待生活本就是一个错误。所以——不如“摆烂”</p>
-</blockquote>
+    <title>一个新的笔记软件——TiddlyWiki</title>
+    <url>/2021/12/18/2021-12-18-%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94TiddlyWiki/</url>
+    <content><![CDATA[<h1 id="一个新的笔记软件"><a href="#一个新的笔记软件" class="headerlink" title="一个新的笔记软件"></a>一个新的笔记软件</h1><p>一晃半年多过去了，这个博客也荒废了好久，趁着做TiddlyWiki的时候把它再捡起来。曾经顶下的周更的目标也早就忘得一干二净，实在是愧疚。</p>
+<p>总之，我又换了一个新的笔记软件——TiddlyWiki，具体可以进里面的<code>About</code> 条目看看，反正就是很折腾，地址在这里<a class="link"   href="https://leiwei.space/wiki/" >https://leiwei.space/wiki/<i class="fas fa-external-link-alt"></i></a>，你看域名是不是很好记哈哈，也可以在友链的地方跳转，叫“胖虎的wiki笔记”。</p>
 <span id="more"></span>
 
-<h2 id="没有任何事情值得我这样做"><a href="#没有任何事情值得我这样做" class="headerlink" title="没有任何事情值得我这样做"></a>没有任何事情值得我这样做</h2><p>一个论文，折磨了我两个月，两个月几乎没做任何其他的事情，睁眼闭眼全是论文，停掉了运动，社团，音乐，那么多的爱好，心思全放在这个上面，就是要急于证明自己，向老师证明，向我自己证明，证明我这段时间做的不是毫无意义，证明我还可以做到。元旦的时候，我脑子里是论文，放假回家，脑子里还是论文。12月中下旬，给做了一次汇报得到了稍微的认可，顿时如释重负，整个人放松下来了，然后过了一天就开始发烧感冒，持续半个月才好；一月下旬，将完成稿交给了老师，又一次如释重负，又一次感冒发烧。第二次我判断是因为流感，我也自认为身体没有那么差受到一点压力就倒，但也意识到自身抵抗力确切收到了非常大的影响，身体在持续发出警报。</p>
-<p>1月21号，给老师发完邮件，就彻底放松了下来，开始好好计划假期该怎么做，然后是今天（02月12日），开会讲论文，顿时我就开始胃里犯恶心，心理上和生理上一并强烈抵触，像是逃不掉的梦魇追了上来，压得我喘不过气。我试着排解，但越想越喘不过气，太难受了，太急于得到成果害怕失败，投入太沉重，想的太重要，以至于不知不觉从意识深处开始抵触，心理上一并带动生理上的抵触。</p>
-<p>我不能陷得太深了，我很清楚这一点，太过专注，不仅是容易盲目，更容易让人走火入魔。身体频繁出现问题已经是明显的信号了，今天犯恶心也是心里已经有问题了。没有任何一件事情值得放弃其他所以的事情来做，可以很短期的全身心投入，但必须很快抽离开，长时间的，没有任何事情值得，过于执着的时候不知不觉放弃的东西往往更加宝贵。</p>
-<p>没录下这次是会议是一大败笔，我将记录下该记录的，然后将论文相关的东西全部封存，等我缓过来了，再去重新面对。</p>
-<p>我一直想让自己变得足够专注，看来我对自己还是够狠，一不小心就能走到反面。所有做过的错事，都会在未来的某个时候让你付出代价，逃不掉的。做学术的事是的，奖学金的事也是的。不要偏执，要好好调节，人要顾及的事情那么多，为什么要偏执在那个牛角尖里。</p>
-<p>没有任何一件事情值得放弃其他所有的事情来做到所谓的“竭尽全力”，至少论文这件事不应该。</p>
-<p>——以上写于2022年02月12日</p>
-<hr>
-<h2 id="盲目"><a href="#盲目" class="headerlink" title="盲目"></a>盲目</h2><p>以上是我最近经历的一次痛苦经历，由心理层面上巨大压力，以及生理层面上连续发烧，组成的双重折磨。后来呢，也就如同上面记录的那样，我把电脑中这段时间搞论文的乱七八糟的占了我半个桌面的文件，花了整整一个下午整理成了一个文件夹，然后封存起来，抛之脑后，舒舒服服的过了一个春节，以及节后的半个寒假。再次打开文件夹已经是开学后了，以功利的“写论文”而不是高大上的“做改变世界的研究”的角度，抽出一部分内容在做现在的工作。大部分钻牛角尖的内容到现在我都没动它。</p>
-<p>这次经历着实是一次灵魂上的洗礼，它让我开始怀疑我对世界的认识是否正确，对待生活是否太盲目。仔细回顾我对待生活的方式是这样的：绝大部分的事情都有他自己的运行轨迹，对此不去操心不受影响，在人群中我都是不愿意过多显露自己的存在，以避免与不重要的事物或他人产生我无法控制的联系；相反，对于少数我认定的事情，我希望能有所掌控，负责到底。对于现阶段的我来说，个人的学习或者工作就属于后者这一范畴，是没有任何可以推脱的理由的，必须要尽全力去做好以证明自己。</p>
-<p>可是事与愿违，我一直以来信奉的策略在这一刻失效了，投入巨量的时间精力但却一直得不到想要的结果，我自己也陷入了自我怀疑之中。这一切值得吗？万一这个事情完成不了呢？万一这件事触及到了我能力的边界，不是靠投入精力就一定能够完成的呢？万一这件事一开始就是错误的，我给自己定了一个错误的目标，钻进了死胡同里呢？我要干什么，做研究还是写论文？做研究是要做出影响世界的成果，写论文只需要过审稿人那一关就行了，区别巨大的的两码事，我的目标好像之前从来没有明确过，只知道盲目努力然后顺其自然等着成果的到来。能有学术追求和梦想固然是好事，但也需要意识到这件事的难度，以及需要做到什么程度，要有心理预期。什么都没有想清楚就盲目浪费自己的精力，用所谓“努力”来感动自己，遇到困难了只知道折腾自己，何必呢。</p>
-<h2 id="“闭关”状态"><a href="#“闭关”状态" class="headerlink" title="“闭关”状态"></a>“闭关”状态</h2><p>从小我父亲对我说过一句话，让我印象很深刻：“学的时候认认真真的学，玩的时候舒舒服服的玩。”，基于此我养成了一个习惯：在学习、工作的时候尽可能的投入和专注，心无旁骛，追求一种类似“入定”的状态，以达到在短时间内尽可能的高效，这个习惯伴随着我的整个学习生涯，在我大学之前的各个时期发挥了巨大的作用。</p>
-<p>不同于中学严格的学校管理，大学时期我有了大量可以自己支配的时间，只要完成学业任务就好。因此在考试周或者学期末的时候，在每一门课程考核的前几天，我都会让自己全身心投入到课程复习中去，从早到晚，心无旁骛，可以拖很久才去吃饭，也可以工作到深夜。这几天会不停的刷题，背诵考点资料，亦或是学完一本书，只为了一个目标——尽可能在考试上多得一些分数，考完就把一切抛之脑后。我把这种做法称之为“闭关”，很形象对吧。</p>
-<p>闭关是我学生时代常用的一种手段，帮助我度过了各种考试，发展到顶峰是考研阶段。那是我迄今最为彻底的一次闭关，时间持续很长。我只记得当时压力很大，我把电脑放回了家里，杜绝了几乎一切娱乐，每天醒来洗漱完就去投入其中，晚上睡前最后一件事是把看完的笔记放进书包。当时我就感叹：像这样全世界都不会有任何事情来打扰我，让我这么长时间内完全专心于一件事情的阶段，可能这辈子都不会再有第二次了。虽然心态崩过一段时间，我也将它当作修行历练，最后只觉得苦尽甘来。</p>
-<p>到了读研阶段，没有很明确的说我该做什么，只是有一个大致的方向，我就顺着这个方向一头扎进学习工作之中。随着时间和精力的大量投入，产出却寥寥无几，压力也就随之而来。我想着，付出终究会是有收获的，持续高强度的投入最后一定会有好的产出。可随着时间的推移，这种状态逐渐快要支撑不住了，我才猛然发现，我这是在“闭关”吗？持续多长时间了，又错过了多少事情。我才明白，不是所有事情都像早期的学习生涯那样，有一个明显的时间界限，时间到了考完试就会结束；也不是所有事情都像早期的学习生涯那样铺好了路，只要努力走就会得到结果。闭关不是在所有地方都适用。就像这次，猛然发现自己陷在一件事情上太久了，不知道这样的付出值不值得，更不知道这段时间自己错过了什么，想想以后人生的路都要自己选，没有绝对正确的路，也没有“考试”这种阶段性的警醒，若是不知不觉将闭关状态作为了人生的主旋律，那必然是一件可怕的事情，老想着等我XXX完成了我就去做XXX，不知不觉给了自己太多逃避的借口，只会留下数不清的遗憾。</p>
-<h2 id="“摆烂”的智慧"><a href="#“摆烂”的智慧" class="headerlink" title="“摆烂”的智慧"></a>“摆烂”的智慧</h2><p>在我十八岁的时候，除了可以拿身份证进网吧之外，我并没有感受太多到“长大了”带来的“自己可以做主”的兴奋感，反而有些不知所措，好像可以选择去做很多事情，但又好像都不是那么容易，也没有很大的必要。到了现在，我更是感受到“自己的路要自己走”的含义，时时刻刻都得做出无关对错的、尽力在日后不会感到后悔的选择，像闭关这样“盲目的沉浸在有限的事情上”的状态，越少越好。</p>
-<p>联想到最近看的很喜欢的一个B站视频，其中有一段对话是这样的：</p>
-<blockquote>
-<p>老蒋：你跟我不一样你有很多身份，作家、网红up主等等，你的主身份是什么？  </p>
-</blockquote>
-<blockquote>
-<p>仲尼：我同时是父亲，是丈夫，是我妈的儿子，这些所有的构成了一个完整的球体的我，所以我觉得没有一个单词可以定义我是谁，有时候我自己都不知道我是谁。</p>
-</blockquote>
-<blockquote>
-<p>老蒋：你这样不定一个主身份，是为什么？</p>
-</blockquote>
-<blockquote>
-<p>仲尼：任何人只要定了自己的主身份之后，他就有可能把其他的可能性给捏死了，我就是个活着的人……</p>
-</blockquote>
-<blockquote>
-<p>老蒋：那你很自信，你觉得自己可以同时做好这几个事情。</p>
-</blockquote>
-<blockquote>
-<p>仲尼：我没有一件事情做的好，你看我做up主也不上不下，我写的书也卖不怎么好啊，然后我做父亲还被老师投诉了，我老婆呢还经常不理我，但是同时呢，我还是这几件事必须同事去做。</p>
-</blockquote>
-<blockquote>
-<p>老蒋：你不会想着，既然这样的话集中精力把其中一个事干好吗？</p>
-</blockquote>
-<blockquote>
-<p>仲尼：那我其他事情不就完蛋了？</p>
-</blockquote>
-<blockquote>
-<p>（网友：顶级摆烂hhh）</p>
-</blockquote>
-<p>原视频点击 <a class="link"   href="https://www.bilibili.com/video/BV13q4y1F7Ja?share_source=copy_web" >链接<i class="fas fa-external-link-alt"></i></a></p>
-<p>没有主次之分的需要做的事情是做不完的，未来的事情也是永远在变化的，不如别想太多（<del>开始摆烂</del>），别太为难自己，去拥抱生活吧。</p>
-<p>the end</p>
-<hr>
+<p>以后有逻辑的笔记就放在那了，分类跳转做的很好，想说的话、图片展示就在这了，后面工具用顺手了再慢慢整吧。</p>
+<p>好像又给自己挖个坑，做一个网页上的图片展区，看起来好像不难，论文搞完就整。（好多事情都是说论文搞完了整，拖延的理由冠冕堂皇，要是最后咕了就当我没说吧QAQ）</p>
 ]]></content>
       <categories>
-        <category>记录</category>
+        <category>折腾</category>
       </categories>
       <tags>
-        <tag>心路</tag>
-        <tag>总结</tag>
+        <tag>折腾</tag>
+        <tag>知识整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python学习笔记</title>
+    <url>/2021/05/08/2021-05-08-python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>比较乱，有空再整理~</p>
+<span id="more"></span>
+
+<h1 id="python学习笔记"><a href="#python学习笔记" class="headerlink" title="python学习笔记"></a>python学习笔记</h1><h2 id="使用镜像安装包"><a href="#使用镜像安装包" class="headerlink" title="使用镜像安装包"></a>使用镜像安装包</h2><p>安装包时国外服务器有时访问很慢，这里可以使用国内镜像</p>
+<p>给<code>pip</code>命令添加<code>-i</code>参数，后接镜像索引的url，例如：</p>
+<p><code>https://pypi.tuna.tsinghua.edu.cn/simple gensim</code></p>
+<h2 id="全局变量关键字global"><a href="#全局变量关键字global" class="headerlink" title="全局变量关键字global"></a>全局变量关键字<code>global</code></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cnt = <span class="number">0</span> <span class="comment"># 计数器</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_cnt</span>():</span><br><span class="line">  <span class="comment">#函数内对全局变量操作时，显示声明这是一个全局变量</span></span><br><span class="line">  <span class="keyword">global</span> cnt</span><br><span class="line">  cnt += <span class="number">1</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_cnt</span>():</span><br><span class="line">  <span class="keyword">global</span> cnt</span><br><span class="line">  <span class="built_in">print</span>(cnt)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  show_cnt()</span><br><span class="line">  add_cnt()</span><br><span class="line">  show_cnt()</span><br><span class="line"></span><br><span class="line">\<span class="comment">#输出结果：</span></span><br><span class="line">\<span class="comment"># 0</span></span><br><span class="line">\<span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串前缀u-r-b-f"><a href="#字符串前缀u-r-b-f" class="headerlink" title="字符串前缀u,r,b,f"></a>字符串前缀<code>u,r,b,f</code></h2><p><code>u</code>，后面字符串以Unicode格式编码，常用于防止中文出现的乱码问题。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">u&#x27;中文’</span></span><br></pre></td></tr></table></figure>
+
+<p><code>r</code>，纯文本？去掉反斜杠机制，常用于正则表达式re</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;\n\n\n\n”</span></span><br></pre></td></tr></table></figure>
+
+<p><code>b</code>，bytes数据类型，常用于网络编程种，浏览器、服务器的数据传输</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = <span class="string">b&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span> </span><br></pre></td></tr></table></figure>
+
+<p><code>f</code>，表示字符串内支持大括号内的python表达式</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">f&#x27;a = <span class="subst">&#123;a&#125;</span>’</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, <span class="built_in">id</span>, name</span>):</span><br><span class="line">        <span class="comment"># 初始化对象</span></span><br><span class="line">        self.<span class="built_in">id</span> = <span class="built_in">id</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 展示对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;id = &#x27;</span>+<span class="built_in">str</span>(self.<span class="built_in">id</span>) + <span class="string">&#x27;, name = &#x27;</span>+self.name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 调用对象方法</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;I can be called&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;my name is <span class="subst">&#123;self.name&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="number">1</span>, <span class="string">&#x27;asd&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">callable</span>(stu))  <span class="comment"># 检查对象是否可调用</span></span><br><span class="line"><span class="built_in">print</span>(stu)  <span class="comment"># 展示对象</span></span><br><span class="line">stu()  <span class="comment"># 调用对象</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># 不存在则创建文件夹</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mkdir</span>(<span class="params">path</span>):</span><br><span class="line">    isexists = os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isexists:</span><br><span class="line">        os.mkdir(path)</span><br></pre></td></tr></table></figure>
+
+<h2 id="在函数中创建函数"><a href="#在函数中创建函数" class="headerlink" title="在函数中创建函数"></a>在函数中创建函数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">shit</span>(<span class="params">a</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">good</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;good&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">bad</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;bad&quot;</span></span><br><span class="line">    <span class="keyword">return</span> good <span class="keyword">if</span> a == <span class="number">1</span> <span class="keyword">else</span> bad()</span><br><span class="line"></span><br><span class="line">s = shit(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(s)  <span class="comment"># &lt;function shit.&lt;locals&gt;.good at 0x00000259CB292DC0&gt;</span></span><br><span class="line"><span class="built_in">print</span>(s())  <span class="comment"># good</span></span><br><span class="line"><span class="built_in">print</span>(shit(<span class="number">1</span>)())  <span class="comment"># good</span></span><br><span class="line"><span class="built_in">print</span>(shit(<span class="number">0</span>))  <span class="comment"># bad</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="for-循环后的-else-语句"><a href="#for-循环后的-else-语句" class="headerlink" title="for 循环后的 else 语句"></a>for 循环后的 else 语句</h2><p>若循环正常结束，而并没有遇到<code>break</code>停下，则会跳转到后面的<code>else</code>语句。</p>
+<p>如以下寻找因数的例子，若没找到则是质数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, i):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; = &#123;&#125; * &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(i, j, i/j))</span><br><span class="line">            <span class="comment"># print(i, &#x27;equals&#x27;, j, &#x27;*&#x27;, i/j)</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">     <span class="comment"># loop fell through without finding a factor</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; is a prime number! &#x27;</span>.<span class="built_in">format</span>(i))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 is a prime number!</span></span><br><span class="line"><span class="comment"># 3 is a prime number!</span></span><br><span class="line"><span class="comment"># 4 = 2 * 2.0</span></span><br><span class="line"><span class="comment"># 4 equals 2 * 2.0</span></span><br><span class="line"><span class="comment"># 5 is a prime number!</span></span><br><span class="line"><span class="comment"># 6 = 2 * 3.0</span></span><br><span class="line"><span class="comment"># 6 equals 2 * 3.0</span></span><br><span class="line"><span class="comment"># 7 is a prime number!</span></span><br><span class="line"><span class="comment"># 8 = 2 * 4.0</span></span><br><span class="line"><span class="comment"># 8 equals 2 * 4.0</span></span><br><span class="line"><span class="comment"># 9 = 3 * 3.0</span></span><br><span class="line"><span class="comment"># 9 equals 3 * 3.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1366,60 +1278,31 @@
       </tags>
   </entry>
   <entry>
-    <title>随笔</title>
-    <url>/2022/08/25/%E9%9A%8F%E7%AC%94/</url>
+    <title>记录这几天的摆烂生活</title>
+    <url>/2025/01/17/%E8%AE%B0%E5%BD%95%E8%BF%99%E5%87%A0%E5%A4%A9%E7%9A%84%E6%91%86%E7%83%82%E7%94%9F%E6%B4%BB/</url>
     <content><![CDATA[<blockquote>
-<p>很多软件，在输入内容之前，必须给文档取一个标题。他们不懂思考的自由。</p>
+<p>没想好在这个地方要写什么，这个地方是设置是否也是一种累赘，下次没想好就空着吧</p>
 </blockquote>
-<blockquote>
-<p>事已至此，那为何会至此？要是想不起来那感觉可太糟了。</p>
-</blockquote>
-<p>是时候重启博客了，</p>
 <span id="more"></span>
 
-<h1 id="20220823随想节选"><a href="#20220823随想节选" class="headerlink" title="20220823随想节选"></a>20220823随想节选</h1><p>这是第一篇尝试在Effie上写作的文档。</p>
-<p>写什么呢？还没想好，不是没内容，而是脑子里的内容太多了，一下子有好几个主题交替在我脑子里闪现出来，却每个都不够完善，不能一气呵成写完，那就罢了，随便写写先。</p>
-<p>先写一个备忘录：手指甲该剪掉了。本想留到弹吉他的，但太长让打字很困难，一旦打字的速度跟不上思维漫游的速度，需要让思绪等待手指把特定的几个字打完，思绪就会集中到那固定的几个字上，只会打断了随想的过程。写这种东西，语言是否精炼、用词是否准确都是次要的，连贯地，一边随想一边写成纸质档整理，从而能够接着随想，这种连贯性才是最重要的，能够把脑子里一直盘旋的东西一点点梳理出来，就像一团杂乱的线条，随便抓住一端，一点点拉出来固定住，最终就会得到一条整理好的线。思绪也就是这样清晰了。</p>
-<p>我就是脑子里的东西太多，或者说是盘旋的东西太多，太活跃，让我感觉内耗严重。而且由于一直在盘旋扰动着我的精力，导致的就是“不良多工”，也做不好其他的事情。写文字，也就是随想着把脑子里想着的很乱的东西尝试用文字整理输出，拿出来摆到眼前固定住了，就能让脑子空一些。之前内耗非常严重失眠到很严重的时候，这个方法尝试过很有效，虽然后面没坚持就是了。</p>
-<p>现在写文字，除了上面说的问题之外，还要一个重要的原因是：人是会遗忘的。我常常在某个时候，路走得非常不顺直至有些怀疑这条道路是否正确，此时我再回头去看我是如何走上这条路的，竟大多时候都是含糊不清的，好像无数个偶然让我随机地这样做了，又好像每个看似偶然，实际上都是当时情景下我所作出的必然结果，又好像，我当时是有一个想法，但是之后便忘了。总之，我意识到过去总是容易含糊不清，因此我对当下的路开始不确信，难以坚定地走向未来。所以写一些什么东西吧，记录下来，随便记录记录就好，因为我此刻写下的每一个看似随意的文字，背后蕴含的都是我此刻潜意识里的真实想法，反而是一种非刻意而为的流露真实的方式。就这样写吧，时不时维护一下让它能保存下来，再根据内容取一个标题，记录上时间，等某个未来我感到迷茫的时候，能够通过这样的文字去追寻，透过文字跟此刻的我进行跨时空的灵魂的交流，告诉那时的我，我此刻的内心是怎样的，不要走着走着迷失了。</p>
-<blockquote>
-<p><strong>事已至此，那为何会至此？要是想不起来那感觉可太糟了</strong>。</p>
-</blockquote>
-<p>总结来说就是一句话：不忘初心。我一直在践行这句话，不要忘了自己是谁，不要突然有一天后悔自己是何时走上了岔路，变成最初的自己讨厌的样子，不要经常因为看不到周围而感到迷茫，只要记得“初心”，至少能知道自己是从哪里如何一步步走过来的，也就不会太感受到这种迷茫。</p>
-<p>写文字记录灵感，在早上最好，这个观点是偶然看到的。因为晚上写容易思维亢奋影响睡眠，而早上思维最清晰，写文字之后能更清楚这一天该干什么，唤醒自己去迎接生活。恍然博客已经荒废了近半年了，这期间若干次想要写写文字将它重启，却一拖再拖。我想是时候重启它了，现在我已经有足够的理由去写下文字，记录下来，并且大大方方的展现给外人，有啥不能看的呢，具体表层的秘密我也不会写出，反倒是流露出的深层的思想，才是一个人隐藏的最深的东西。</p>
-<p>每天发生的事情太多太多，真正能记住的，在我脑子里留下点东西的，太少太少，若是每天都是这样子，那么多一天少一天没多大区别。</p>
-<p>我又想起那个放羊的故事，太发人深省了，历史不是一成不变的，而应该是螺旋上升的，看似相似的事情每发生一次，应该对我来说都会比上一次多留下一些东西，留下某些不会轻易被时间抹去的东西，这样才让我觉得这一天是有价值的，与之前的每一天都不一样，这样的一天是值得去经历的。</p>
-<hr>
-<p>可能看到这里还是很疑惑effie是什么，其实没什么特殊的，只是一个文稿写作软件而已，与我用过的typera、vs code、one note、幕布、flomo、语雀、TiddlyWiki等一众软件相比，似乎功能比较新，但实质上没有什么本质的区别。不知道什么时候开始有了知识梳理记录的执念，对软件又变得很感兴趣，起初每个软件都能在某些方面惊艳到我，后来每个软件的使用频率都慢慢变低，好久都不打开一次。</p>
-<p>我现在用的这个effie有一句话挺吸引我，是写在软件介绍里的：</p>
-<blockquote>
-<p>很多软件，在输入内容之前，必须给文档取一个标题。他们不懂思考的自由。</p>
-</blockquote>
-<p>正是这句话，搭配上其极简的纯色的界面，让我有了随便写写的念头，也就产出了这篇文字。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.staticaly.com/gh/lei-wei/pic_bed@main/picX/0825%E4%B9%85%E8%BF%9D%E7%9A%84%E5%81%9A%E9%A5%AD.1bzv22co8tvk.jpg"
-                      alt="0825久违的做饭"
-                ></p>
-<p>久违的做饭，三个菜分别是：</p>
-<ul>
-<li>香煎小土豆</li>
-<li>青椒斩蛋</li>
-<li>凉拌西红柿</li>
-</ul>
-<p>——20220825</p>
+<p>现在是凌晨1点钟，准备写点东西再睡。</p>
+<p>我决定了要写一篇文字，主题就叫《记录这几天的摆烂生活》，决心是今天晚上走在路上的时候定下的。晚上校园里的街边没什么人，很安静，只听到风的声音，也有些喧嚣，当然也伴随着我哼歌的声音，哼的还是那一首《故乡》，没什么别的原因，只是这首歌让我很放松，今晚的经历也同样让我感到很放松，于是就这么自然而然的发生了。晚上和室友去逛了逛街，吃了顿好的，然后去赴迟到了一个半小时的约，刚好赶上伙伴在给一群孩子唱《孤勇者》，整个炸窝了，不忍破坏这样的画面，就在一旁笑着把画面录了下来。碰到了两位师弟，聊了些最近过得怎么样，教师节和中秋节送什么之类的话题。随后天色渐晚小朋友们逐渐被带着回家，人群少了下来，师弟也离去了，我跟玩音乐的几个伙伴才开始聊起来，聊着歌曲啊，找工作啊，还有关于疫情政治的，一些有的没的之类的话题。随后一起收拾东西，回住处放好，说着明天要借电动车去别处取卡宏鼓方便以后玩，就这样分别再各自离去。</p>
+<p>看着是一段很正常的经历，普通但对于当下的我却不是那么普通，因为我刚经历了一段时间的摆烂，不是一般常说的自嘲式的摆烂或者是叛逆式的不想做好的摆烂，而是将一切事情抛掷脑后完全不管放弃思考放纵自身的那种摆烂，像是在连贯的繁杂生活中给自己按下了暂停键，世界还是那个世界没有我一样转，而我就像是“请假了一段时间”一样，给自己了一段偷跑的时间，家人老师同学、论文项目找工作，这几天几乎就没想过，手机通知经常遗漏半天后才看到，天塌了那也过几天再去补，这几天就让我独自呆着，好好享受这段空闲。</p>
+<p>这段空闲的契机是因为疫情，所在的宿舍楼有人密接被拉去隔离了，于是整栋楼静默处理，通知说“除了做核酸和买饭之外不允许出楼”。现在想想，这封控也没封死，可操作的空间大了去了，可当时我醒来看到通知的一瞬间，想的是：“好吧疫情原因我只能呆在宿舍里一段时间了正好这段时间好好休息吧”，于是便继续躺下了。也是，这个疫情通知发生在返校的第一个周一，在这之前整个暑假一直在上班，在家最长休息也不超过一个星期，确实是有些累了需要一个间歇，本来找工作和去上班两件事情还推着我让我保持紧张高效率的状态，得，楼栋封控了，那我直接躺下。所有的一切都有了完美的解释，我甚至都不需要跟老师请假，就算出了什么乱子追责的时候，噢疫情封楼了没办法啊，那没事了，这段时间辛苦配合防疫吧。</p>
+<p>躺着摆烂的这段时间，是真的全身心放松的一段时间，看着剧打着游戏吃着糕点喝着肥宅快乐水，不用为了什么目标去奋斗，不用三省吾身思考下一步的打算，没有任何工作需要在这段时间去完成。每天躺着床上15个小时，全天眼睛不离开手机电脑，看了好些剧打了好多把重复的游戏，等待着时间就这么过去。</p>
+<p>封控是周一紧急下的通知，周五就解了，或者说我认为是时候回归生活了。因为并没有看到可以自由活动了的通知——想也知道这种通知容易让发通知的人担责，但时间长了所有人的生活慢慢恢复原样了，包括楼下宿管因为疫情封控收起来的小摊，这几天也重新摆了出来，进出检查的人从漫不经心到慢慢压根儿看不到人影，就知道实际上是解封了。再就是，摆烂的生活到这差不多已经够了，毕竟每天在几平米的地方蜗居着，再不活动一下感觉骨头都得散架，放纵的太多也会感到无聊和空虚，负面情绪慢慢浮现，提醒我需要去做一些实质性的事情去抵抗内心的不安情绪了。</p>
+<p>于是我走出了门，逛了逛走了走，路上想了一下回归原本我给自己规划的生活，要续上好多进行到一半的事情和即将需要开始的事情，心里瞬间涌上一丝焦虑——有太多繁杂和困难的事情需要去梳理和克服，索性把这些思绪放在一边——因为只有着手开始解决才能从根本上消解这种情绪，而开始工作至少是明天才开始的事情。和伙伴们见见面聊聊天吧，仿佛我从未离开过，一直是那个对生活充满热情，对很多话题都很能聊的人。看到这你应该明白为何今晚的普通经历很不普通，也感谢从前的积极向上的我，让今晚的特殊经历看起来是那么的寻常。</p>
 ]]></content>
       <categories>
         <category>记录</category>
       </categories>
       <tags>
-        <tag>心路</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
     <title>一个简单的自启动脚本</title>
-    <url>/2023/04/07/%E5%B0%9D%E8%AF%95%E7%94%A8python%E5%86%99%E8%84%9A%E6%9C%AC/</url>
+    <url>/2025/01/17/%E5%B0%9D%E8%AF%95%E7%94%A8python%E5%86%99%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<blockquote>
 <p>不得不说，人在痛苦的时候，干别的事情的创造力和效率都是极高的</p>
 </blockquote>
@@ -1472,6 +1355,153 @@
       </categories>
       <tags>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>没有什么值得我放弃其他所有事情来达到所谓的“竭尽全力”</title>
+    <url>/2022/03/25/%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E6%88%91%E6%94%BE%E5%85%B6%E5%85%B6%E4%BB%96%E6%89%80%E6%9C%89%E4%BA%8B%E6%83%85%E6%9D%A5%E8%BE%BE%E5%88%B0%E6%89%80%E8%B0%93%E7%9A%84%E2%80%9C%E7%AB%AD%E5%B0%BD%E5%85%A8%E5%8A%9B%E2%80%9D/</url>
+    <content><![CDATA[<blockquote>
+<p>没有任何一件事情值得放弃其他所有的事情来做到所谓的“竭尽全力”，以“闭关”的方式对待生活本就是一个错误。所以——不如“摆烂”</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="没有任何事情值得我这样做"><a href="#没有任何事情值得我这样做" class="headerlink" title="没有任何事情值得我这样做"></a>没有任何事情值得我这样做</h2><p>一个论文，折磨了我两个月，两个月几乎没做任何其他的事情，睁眼闭眼全是论文，停掉了运动，社团，音乐，那么多的爱好，心思全放在这个上面，就是要急于证明自己，向老师证明，向我自己证明，证明我这段时间做的不是毫无意义，证明我还可以做到。元旦的时候，我脑子里是论文，放假回家，脑子里还是论文。12月中下旬，给做了一次汇报得到了稍微的认可，顿时如释重负，整个人放松下来了，然后过了一天就开始发烧感冒，持续半个月才好；一月下旬，将完成稿交给了老师，又一次如释重负，又一次感冒发烧。第二次我判断是因为流感，我也自认为身体没有那么差受到一点压力就倒，但也意识到自身抵抗力确切收到了非常大的影响，身体在持续发出警报。</p>
+<p>1月21号，给老师发完邮件，就彻底放松了下来，开始好好计划假期该怎么做，然后是今天（02月12日），开会讲论文，顿时我就开始胃里犯恶心，心理上和生理上一并强烈抵触，像是逃不掉的梦魇追了上来，压得我喘不过气。我试着排解，但越想越喘不过气，太难受了，太急于得到成果害怕失败，投入太沉重，想的太重要，以至于不知不觉从意识深处开始抵触，心理上一并带动生理上的抵触。</p>
+<p>我不能陷得太深了，我很清楚这一点，太过专注，不仅是容易盲目，更容易让人走火入魔。身体频繁出现问题已经是明显的信号了，今天犯恶心也是心里已经有问题了。没有任何一件事情值得放弃其他所以的事情来做，可以很短期的全身心投入，但必须很快抽离开，长时间的，没有任何事情值得，过于执着的时候不知不觉放弃的东西往往更加宝贵。</p>
+<p>没录下这次是会议是一大败笔，我将记录下该记录的，然后将论文相关的东西全部封存，等我缓过来了，再去重新面对。</p>
+<p>我一直想让自己变得足够专注，看来我对自己还是够狠，一不小心就能走到反面。所有做过的错事，都会在未来的某个时候让你付出代价，逃不掉的。做学术的事是的，奖学金的事也是的。不要偏执，要好好调节，人要顾及的事情那么多，为什么要偏执在那个牛角尖里。</p>
+<p>没有任何一件事情值得放弃其他所有的事情来做到所谓的“竭尽全力”，至少论文这件事不应该。</p>
+<p>——以上写于2022年02月12日</p>
+<hr>
+<h2 id="盲目"><a href="#盲目" class="headerlink" title="盲目"></a>盲目</h2><p>以上是我最近经历的一次痛苦经历，由心理层面上巨大压力，以及生理层面上连续发烧，组成的双重折磨。后来呢，也就如同上面记录的那样，我把电脑中这段时间搞论文的乱七八糟的占了我半个桌面的文件，花了整整一个下午整理成了一个文件夹，然后封存起来，抛之脑后，舒舒服服的过了一个春节，以及节后的半个寒假。再次打开文件夹已经是开学后了，以功利的“写论文”而不是高大上的“做改变世界的研究”的角度，抽出一部分内容在做现在的工作。大部分钻牛角尖的内容到现在我都没动它。</p>
+<p>这次经历着实是一次灵魂上的洗礼，它让我开始怀疑我对世界的认识是否正确，对待生活是否太盲目。仔细回顾我对待生活的方式是这样的：绝大部分的事情都有他自己的运行轨迹，对此不去操心不受影响，在人群中我都是不愿意过多显露自己的存在，以避免与不重要的事物或他人产生我无法控制的联系；相反，对于少数我认定的事情，我希望能有所掌控，负责到底。对于现阶段的我来说，个人的学习或者工作就属于后者这一范畴，是没有任何可以推脱的理由的，必须要尽全力去做好以证明自己。</p>
+<p>可是事与愿违，我一直以来信奉的策略在这一刻失效了，投入巨量的时间精力但却一直得不到想要的结果，我自己也陷入了自我怀疑之中。这一切值得吗？万一这个事情完成不了呢？万一这件事触及到了我能力的边界，不是靠投入精力就一定能够完成的呢？万一这件事一开始就是错误的，我给自己定了一个错误的目标，钻进了死胡同里呢？我要干什么，做研究还是写论文？做研究是要做出影响世界的成果，写论文只需要过审稿人那一关就行了，区别巨大的的两码事，我的目标好像之前从来没有明确过，只知道盲目努力然后顺其自然等着成果的到来。能有学术追求和梦想固然是好事，但也需要意识到这件事的难度，以及需要做到什么程度，要有心理预期。什么都没有想清楚就盲目浪费自己的精力，用所谓“努力”来感动自己，遇到困难了只知道折腾自己，何必呢。</p>
+<h2 id="“闭关”状态"><a href="#“闭关”状态" class="headerlink" title="“闭关”状态"></a>“闭关”状态</h2><p>从小我父亲对我说过一句话，让我印象很深刻：“学的时候认认真真的学，玩的时候舒舒服服的玩。”，基于此我养成了一个习惯：在学习、工作的时候尽可能的投入和专注，心无旁骛，追求一种类似“入定”的状态，以达到在短时间内尽可能的高效，这个习惯伴随着我的整个学习生涯，在我大学之前的各个时期发挥了巨大的作用。</p>
+<p>不同于中学严格的学校管理，大学时期我有了大量可以自己支配的时间，只要完成学业任务就好。因此在考试周或者学期末的时候，在每一门课程考核的前几天，我都会让自己全身心投入到课程复习中去，从早到晚，心无旁骛，可以拖很久才去吃饭，也可以工作到深夜。这几天会不停的刷题，背诵考点资料，亦或是学完一本书，只为了一个目标——尽可能在考试上多得一些分数，考完就把一切抛之脑后。我把这种做法称之为“闭关”，很形象对吧。</p>
+<p>闭关是我学生时代常用的一种手段，帮助我度过了各种考试，发展到顶峰是考研阶段。那是我迄今最为彻底的一次闭关，时间持续很长。我只记得当时压力很大，我把电脑放回了家里，杜绝了几乎一切娱乐，每天醒来洗漱完就去投入其中，晚上睡前最后一件事是把看完的笔记放进书包。当时我就感叹：像这样全世界都不会有任何事情来打扰我，让我这么长时间内完全专心于一件事情的阶段，可能这辈子都不会再有第二次了。虽然心态崩过一段时间，我也将它当作修行历练，最后只觉得苦尽甘来。</p>
+<p>到了读研阶段，没有很明确的说我该做什么，只是有一个大致的方向，我就顺着这个方向一头扎进学习工作之中。随着时间和精力的大量投入，产出却寥寥无几，压力也就随之而来。我想着，付出终究会是有收获的，持续高强度的投入最后一定会有好的产出。可随着时间的推移，这种状态逐渐快要支撑不住了，我才猛然发现，我这是在“闭关”吗？持续多长时间了，又错过了多少事情。我才明白，不是所有事情都像早期的学习生涯那样，有一个明显的时间界限，时间到了考完试就会结束；也不是所有事情都像早期的学习生涯那样铺好了路，只要努力走就会得到结果。闭关不是在所有地方都适用。就像这次，猛然发现自己陷在一件事情上太久了，不知道这样的付出值不值得，更不知道这段时间自己错过了什么，想想以后人生的路都要自己选，没有绝对正确的路，也没有“考试”这种阶段性的警醒，若是不知不觉将闭关状态作为了人生的主旋律，那必然是一件可怕的事情，老想着等我XXX完成了我就去做XXX，不知不觉给了自己太多逃避的借口，只会留下数不清的遗憾。</p>
+<h2 id="“摆烂”的智慧"><a href="#“摆烂”的智慧" class="headerlink" title="“摆烂”的智慧"></a>“摆烂”的智慧</h2><p>在我十八岁的时候，除了可以拿身份证进网吧之外，我并没有感受太多到“长大了”带来的“自己可以做主”的兴奋感，反而有些不知所措，好像可以选择去做很多事情，但又好像都不是那么容易，也没有很大的必要。到了现在，我更是感受到“自己的路要自己走”的含义，时时刻刻都得做出无关对错的、尽力在日后不会感到后悔的选择，像闭关这样“盲目的沉浸在有限的事情上”的状态，越少越好。</p>
+<p>联想到最近看的很喜欢的一个B站视频，其中有一段对话是这样的：</p>
+<blockquote>
+<p>老蒋：你跟我不一样你有很多身份，作家、网红up主等等，你的主身份是什么？  </p>
+</blockquote>
+<blockquote>
+<p>仲尼：我同时是父亲，是丈夫，是我妈的儿子，这些所有的构成了一个完整的球体的我，所以我觉得没有一个单词可以定义我是谁，有时候我自己都不知道我是谁。</p>
+</blockquote>
+<blockquote>
+<p>老蒋：你这样不定一个主身份，是为什么？</p>
+</blockquote>
+<blockquote>
+<p>仲尼：任何人只要定了自己的主身份之后，他就有可能把其他的可能性给捏死了，我就是个活着的人……</p>
+</blockquote>
+<blockquote>
+<p>老蒋：那你很自信，你觉得自己可以同时做好这几个事情。</p>
+</blockquote>
+<blockquote>
+<p>仲尼：我没有一件事情做的好，你看我做up主也不上不下，我写的书也卖不怎么好啊，然后我做父亲还被老师投诉了，我老婆呢还经常不理我，但是同时呢，我还是这几件事必须同事去做。</p>
+</blockquote>
+<blockquote>
+<p>老蒋：你不会想着，既然这样的话集中精力把其中一个事干好吗？</p>
+</blockquote>
+<blockquote>
+<p>仲尼：那我其他事情不就完蛋了？</p>
+</blockquote>
+<blockquote>
+<p>（网友：顶级摆烂hhh）</p>
+</blockquote>
+<p>原视频点击 <a class="link"   href="https://www.bilibili.com/video/BV13q4y1F7Ja?share_source=copy_web" >链接<i class="fas fa-external-link-alt"></i></a></p>
+<p>没有主次之分的需要做的事情是做不完的，未来的事情也是永远在变化的，不如别想太多（<del>开始摆烂</del>），别太为难自己，去拥抱生活吧。</p>
+<p>the end</p>
+<hr>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>心路</tag>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔</title>
+    <url>/2022/08/25/%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<blockquote>
+<p>很多软件，在输入内容之前，必须给文档取一个标题。他们不懂思考的自由。</p>
+</blockquote>
+<blockquote>
+<p>事已至此，那为何会至此？要是想不起来那感觉可太糟了。</p>
+</blockquote>
+<p>是时候重启博客了，</p>
+<span id="more"></span>
+
+<h1 id="20220823随想节选"><a href="#20220823随想节选" class="headerlink" title="20220823随想节选"></a>20220823随想节选</h1><p>这是第一篇尝试在Effie上写作的文档。</p>
+<p>写什么呢？还没想好，不是没内容，而是脑子里的内容太多了，一下子有好几个主题交替在我脑子里闪现出来，却每个都不够完善，不能一气呵成写完，那就罢了，随便写写先。</p>
+<p>先写一个备忘录：手指甲该剪掉了。本想留到弹吉他的，但太长让打字很困难，一旦打字的速度跟不上思维漫游的速度，需要让思绪等待手指把特定的几个字打完，思绪就会集中到那固定的几个字上，只会打断了随想的过程。写这种东西，语言是否精炼、用词是否准确都是次要的，连贯地，一边随想一边写成纸质档整理，从而能够接着随想，这种连贯性才是最重要的，能够把脑子里一直盘旋的东西一点点梳理出来，就像一团杂乱的线条，随便抓住一端，一点点拉出来固定住，最终就会得到一条整理好的线。思绪也就是这样清晰了。</p>
+<p>我就是脑子里的东西太多，或者说是盘旋的东西太多，太活跃，让我感觉内耗严重。而且由于一直在盘旋扰动着我的精力，导致的就是“不良多工”，也做不好其他的事情。写文字，也就是随想着把脑子里想着的很乱的东西尝试用文字整理输出，拿出来摆到眼前固定住了，就能让脑子空一些。之前内耗非常严重失眠到很严重的时候，这个方法尝试过很有效，虽然后面没坚持就是了。</p>
+<p>现在写文字，除了上面说的问题之外，还要一个重要的原因是：人是会遗忘的。我常常在某个时候，路走得非常不顺直至有些怀疑这条道路是否正确，此时我再回头去看我是如何走上这条路的，竟大多时候都是含糊不清的，好像无数个偶然让我随机地这样做了，又好像每个看似偶然，实际上都是当时情景下我所作出的必然结果，又好像，我当时是有一个想法，但是之后便忘了。总之，我意识到过去总是容易含糊不清，因此我对当下的路开始不确信，难以坚定地走向未来。所以写一些什么东西吧，记录下来，随便记录记录就好，因为我此刻写下的每一个看似随意的文字，背后蕴含的都是我此刻潜意识里的真实想法，反而是一种非刻意而为的流露真实的方式。就这样写吧，时不时维护一下让它能保存下来，再根据内容取一个标题，记录上时间，等某个未来我感到迷茫的时候，能够通过这样的文字去追寻，透过文字跟此刻的我进行跨时空的灵魂的交流，告诉那时的我，我此刻的内心是怎样的，不要走着走着迷失了。</p>
+<blockquote>
+<p><strong>事已至此，那为何会至此？要是想不起来那感觉可太糟了</strong>。</p>
+</blockquote>
+<p>总结来说就是一句话：不忘初心。我一直在践行这句话，不要忘了自己是谁，不要突然有一天后悔自己是何时走上了岔路，变成最初的自己讨厌的样子，不要经常因为看不到周围而感到迷茫，只要记得“初心”，至少能知道自己是从哪里如何一步步走过来的，也就不会太感受到这种迷茫。</p>
+<p>写文字记录灵感，在早上最好，这个观点是偶然看到的。因为晚上写容易思维亢奋影响睡眠，而早上思维最清晰，写文字之后能更清楚这一天该干什么，唤醒自己去迎接生活。恍然博客已经荒废了近半年了，这期间若干次想要写写文字将它重启，却一拖再拖。我想是时候重启它了，现在我已经有足够的理由去写下文字，记录下来，并且大大方方的展现给外人，有啥不能看的呢，具体表层的秘密我也不会写出，反倒是流露出的深层的思想，才是一个人隐藏的最深的东西。</p>
+<p>每天发生的事情太多太多，真正能记住的，在我脑子里留下点东西的，太少太少，若是每天都是这样子，那么多一天少一天没多大区别。</p>
+<p>我又想起那个放羊的故事，太发人深省了，历史不是一成不变的，而应该是螺旋上升的，看似相似的事情每发生一次，应该对我来说都会比上一次多留下一些东西，留下某些不会轻易被时间抹去的东西，这样才让我觉得这一天是有价值的，与之前的每一天都不一样，这样的一天是值得去经历的。</p>
+<hr>
+<p>可能看到这里还是很疑惑effie是什么，其实没什么特殊的，只是一个文稿写作软件而已，与我用过的typera、vs code、one note、幕布、flomo、语雀、TiddlyWiki等一众软件相比，似乎功能比较新，但实质上没有什么本质的区别。不知道什么时候开始有了知识梳理记录的执念，对软件又变得很感兴趣，起初每个软件都能在某些方面惊艳到我，后来每个软件的使用频率都慢慢变低，好久都不打开一次。</p>
+<p>我现在用的这个effie有一句话挺吸引我，是写在软件介绍里的：</p>
+<blockquote>
+<p>很多软件，在输入内容之前，必须给文档取一个标题。他们不懂思考的自由。</p>
+</blockquote>
+<p>正是这句话，搭配上其极简的纯色的界面，让我有了随便写写的念头，也就产出了这篇文字。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.staticaly.com/gh/lei-wei/pic_bed@main/picX/0825%E4%B9%85%E8%BF%9D%E7%9A%84%E5%81%9A%E9%A5%AD.1bzv22co8tvk.jpg"
+                      alt="0825久违的做饭"
+                ></p>
+<p>久违的做饭，三个菜分别是：</p>
+<ul>
+<li>香煎小土豆</li>
+<li>青椒斩蛋</li>
+<li>凉拌西红柿</li>
+</ul>
+<p>——20220825</p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>心路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>话剧《明天你想去哪玩》有感</title>
+    <url>/2025/05/29/%E8%AF%9D%E5%89%A7%E3%80%8A%E6%98%8E%E5%A4%A9%E4%BD%A0%E6%83%B3%E5%8E%BB%E5%93%AA%E7%8E%A9%E3%80%8B%E6%9C%89%E6%84%9F/</url>
+    <content><![CDATA[<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/683862bb58cb8da5c81aba57.png"
+                     
+                ></p>
+<p>看话剧有感《明天你想去哪玩》<br><a class="link"   href="https://www.bilibili.com/video/BV1dYQqYiEpx?spm_id_from=333.788.recommend_more_video.-1&vd_source=ddab68bf471b81e916bdc6cff63822cf" >天地本宽而人心自隘_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></p>
+<blockquote>
+<p>完整版在抖音能搜到，B站这个有剪辑但毕竟是入坑版，所以还是放这了。</p>
+</blockquote>
+<p>看完很震惊，赤裸裸的把矛盾放在眼前，不是俗套的男女对立、资本、阶级问题，而是每个人都大概率会遇到的教育问题，以及如何做自己的问题。</p>
+<p>“我不鸡娃，鸡娃不如鸡自己。我是母亲，是妻子，是女儿，更是我自己。<br>只有做好自己，才能给娃一个快乐的童年。”</p>
+<p>看起来没错，可实际上，问题大了。有了娃，多了现实因素，如何自由自在的做自己？<br>打乱自己的原本的生活节奏，在最有能力的上升期，选择生娃，事业按下暂停键，一切问题都来了。</p>
+<p>第一，有娃对父母人生的冲击<br>生娃，是结婚后，从学校出来不久，事业起步上升期，结婚不久，人处于生理上的巅峰，人生一切都是新的积极向上的。生了娃，一切都按下暂停键，一切在做的事情都被打乱，一切计划的事情全都延后，继而产生极强的挫败感。参见在疫情期间我心理所收到的冲击。</p>
+<p>第二，文化中对后代的看法<br>在我们文化中貌似是永生观：人生这一段不是独立的，而是所在的这一条长线中的一环。我是我祖先的延续，不能忘本，有根，有传承需要遵循；我的后代又是我的延续，会将我的东西发扬光大，我会把我最好的东西都留给他，他需要比我更好。因此，会施以强烈的期望，也就必然会投入巨量的精力。</p>
+<p>第三，鸡娃，充满对比，导致不可松懈<br>也可能是信息时代把头部的少量个体放大了，导致对平均真实水平的认知有偏差，目标错配，只盯着头部当对比；<br>也可能是本土文化中太过勤奋，不能有丝毫松懈，当《普通人》会被认为是“没有志向”，是“失败的”。<br>也可能是当今媒体的导向就是贩卖焦虑，导致永远没有安定的时候，永远在紧迫的向前追赶。<br>结果就是，家长都很焦虑。</p>
+<p>第四，不尊重孩子独立个体的自由意志<br>将自认为正确的东西强行施加在其身上，而少了尊重，较少关心其自由意志，缺乏对内心世界的关注。我说的都是对的，都是我人生血淋淋的教训，这明摆着的大道理，我知道是对的路，你走就完了，为啥要乱走呢。</p>
+<p>第五，父母希望在娃身上补齐自己的缺憾<br>自己踩过的坑，亦或是因为有娃而错失的机会，都是希望能重来一次补齐的遗憾。<br>现在有娃了，是自己的心血，潜意识认为是自己某种方式的延续，那么会引导娃补齐自己的缺憾，会期望娃做自己曾经做不到的事情。</p>
+<p>第六，时代的局限性<br>父母这一代处于改革开放，一切都是积极向上的，自认为孩子也是一样努力就有好结果。除了经济之外，文化情况也是同理。<br>但是要知道，历史是螺旋上升的，而不总是向上，我这一代上升或是下降，孩子要是有回退或是停滞不前，也是很正常的事情。</p>
+<p>何解？</p>
+<p>1，尊重孩子的独立个体。他有他自己的发展轨迹，有他自己的运气和选择，并不一定要按我想象的安排的来。<br>2，对不如意的事情不要太执念，人生的路不止一条，人生的容错空间其实很大。这一条对孩子和对自己都适用。<br>3，全方位关注孩子，心理上，健康上，学习上，心智上，阅历上，都要关注。关注是为了及时发现孩子成长的偏差，从而警醒自己，对自身的行为方法及时纠错和调整。<br>4，人生无解。人生注定充满了拉扯，妥协和做选择。不可能有最优解，也不可能规划的明明白白。想清楚这一点，然后勇敢面对生活。接受不确定性，接受不完美。</p>
+<p>总结来句暴论：放下助人情节，尊重他人命运。这里的“他人”可以指代所有人，包括与自己关系最亲近的孩子，甚至也包括自己。这个想法看起来很极端，但是确实可以提醒自己不要去走极端，不要陷入执念。peace and love，做不到全部的话就先做到一部分吧。</p>
+]]></content>
+      <tags>
+        <tag>话剧</tag>
       </tags>
   </entry>
 </search>
