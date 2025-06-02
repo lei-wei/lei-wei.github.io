@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="think, record, remember">
+    <meta name="description" content="这里是毛利老弟的个人space">
+    <meta name="author" content="胖虎">
+    
+    <title>
+        
+            知识库编写原则 |
+        
+        Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/panghu256.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"leiwei.xyz","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Blog","author":"胖虎","avatar":"/images/panghu256.ico","logo":"/images/panghu256.ico","favicon":"/images/panghu256.ico"},"menu":{"Home":"/","Archives":"/archives","About":"/about","知识库":"http://leiwei.space/wiki/"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"1391691050@qq.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"valine","valine":{"appid":"QhzIaCu4epfSLVlGoccyOGMs-gzGzoHsz","appkey":"0NYvSTb2WYVBxhG4EOhQJnjO","placeholder":"给我的文章加点评论吧~"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":true,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{"links":[{"name":"胖虎的wiki","link":"http://leiwei.space/wiki/","description":"打造数字化第二大脑","avatar":"/images/panghu256.ico"},{"name":"XPoet","link":"https://xpoet.cn/","description":"所有命运的馈赠，早已在暗中标好价格。","avatar":"https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg"},{"name":"卡洛的核心舱","link":"https://corecabin.cn/","description":"Tomorrow will be fine.","avatar":"https://corecabin.cn/img/avatar.jpg"},{"name":"Hexo-Keep指南","link":"https://keep-docs.xpoet.cn/","description":"一款简约且优雅的 Hexo 主题","avatar":"/images/logo.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/panghu256.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="http://leiwei.space/wiki/">
+                                
+                                知识库
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="http://leiwei.space/wiki/">
+                            
+                            知识库
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        知识库编写原则
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/panghu256.ico">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">胖虎</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-06-02 23:45:07</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Jun 03 2025 01:39:02 GMT+0800">2025-06-03 01:39:02</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h4 id="缘由与定位：知识库？第二大脑？"><a href="#缘由与定位：知识库？第二大脑？" class="headerlink" title="缘由与定位：知识库？第二大脑？"></a>缘由与定位：知识库？第二大脑？</h4><ol>
+<li>个人思辨。个人每天接触的碎片信息太多，需要一个思辨和记录的地方，让人理清思绪。——打草稿与做笔记</li>
+<li>解放脑力，事情很容易遗忘，所以希望有外挂的存储装置，帮助记忆，解放脑力。——记录事情和回顾</li>
+<li>思维碰撞，基于记录下的材料，在软件、AI等工具的帮助下，进行思维延展，发现思维的盲区，以得到启发。——客观分析，反哺自身。</li>
+</ol>
+<h4 id="记录原则：写、回顾、更新"><a href="#记录原则：写、回顾、更新" class="headerlink" title="记录原则：写、回顾、更新"></a>记录原则：写、回顾、更新</h4><ol>
+<li><strong>坚持写</strong>。不要三分钟热度，断断续续。确定了这东西有用，就先做起来，养成习惯，再去总结价值</li>
+<li><strong>快速写</strong>，减少负担，不能发呆，要注重产出，不需要太担心质量，后续会迭代。</li>
+<li><strong>保持回顾</strong>。常看常新。让思维活起来。</li>
+<li><strong>保持迭代</strong>。发挥工具属性，而不是艺术品属性。或合并，或拓展，或删除，不要臃肿，会成为累赘。具体方法例如，保持5:1的迭代比（每新增5则笔记需优化1则旧内容）</li>
+</ol>
+<p>有点像PDCA的流程模式</p>
+<ul>
+<li>P——Plan，有灵感记录下来</li>
+<li>D——Do，在知识库中写作内容</li>
+<li>C——Check，结合已有的其他笔记、AI分析、深化内容等，做思维延展</li>
+<li>A——Act，自身思维得到成长，以指导现实决策</li>
+</ul>
+<h4 id="一些可参考的方法"><a href="#一些可参考的方法" class="headerlink" title="一些可参考的方法"></a>一些可参考的方法</h4><h5 id="1-信息分级处理系统"><a href="#1-信息分级处理系统" class="headerlink" title="1. 信息分级处理系统"></a>1. 信息分级处理系统</h5><p>参考三级信息筛选漏斗：信息及时记录和处理</p>
+<ol>
+<li>闪念笔记（临时灵感，24小时内处理）</li>
+<li>文献笔记（外部信息摘录，72小时内加工）</li>
+<li>永久笔记（经深度加工的知识单元）</li>
+</ol>
+<h5 id="2-原子化写作原则"><a href="#2-原子化写作原则" class="headerlink" title="2. 原子化写作原则"></a>2. 原子化写作原则</h5><p>每一篇内容都要逻辑清晰和读起来清爽，一定不要臃肿。</p>
+<ol>
+<li>每则笔记聚焦单一概念（不超过300字）</li>
+<li>强制使用概念标题（而非描述性标题）</li>
+<li>添加双向链接和元数据标签（时间/领域/项目）</li>
+</ol>
+<h5 id="3-主动回顾：卡片回溯法"><a href="#3-主动回顾：卡片回溯法" class="headerlink" title="3. 主动回顾：卡片回溯法"></a>3. 主动回顾：卡片回溯法</h5><p>常看常新</p>
+<ul>
+<li>随机抽检机制：每日随机调取5张旧卡片</li>
+<li>主题漫游：每周沿特定知识脉络进行深度遍历</li>
+<li>概念碰撞：每月生成随机词表进行跨领域联想</li>
+</ul>
+<h5 id="4-迭代比原则，把握迭代优化的节奏"><a href="#4-迭代比原则，把握迭代优化的节奏" class="headerlink" title="4. 迭代比原则，把握迭代优化的节奏"></a>4. 迭代比原则，把握迭代优化的节奏</h5><p>强制输出规则：每新增10则笔记需产生1篇衍生内容。<br>比例可随实际情况调整，但必须主动更新，在过程中把握迭代优化的节奏。</p>
+<h5 id="5-概念完整性原则，注重闭环和联系"><a href="#5-概念完整性原则，注重闭环和联系" class="headerlink" title="5. 概念完整性原则，注重闭环和联系"></a>5. 概念完整性原则，注重闭环和联系</h5><p>消除“信息孤岛”，寻找知识之间的联系，方便记忆，也方便找到思维盲区。信息闭环了才会是最终的完整状态。</p>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                知识库编写原则
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2025/06/02/知识库编写原则/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">胖虎</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2025-06-02 23:45</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/05/29/%E8%AF%9D%E5%89%A7%E3%80%8A%E6%98%8E%E5%A4%A9%E4%BD%A0%E6%83%B3%E5%8E%BB%E5%93%AA%E7%8E%A9%E3%80%8B%E6%9C%89%E6%84%9F/"
+                                   title="话剧《明天你想去哪玩》有感"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">话剧《明天你想去哪玩》有感</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;Comments
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">Comment plugin failed to load</span>
+    <button class="reload keep-button">Click to reload</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">Loading comment plugin</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="valine-container">
+        <div id="vcomments"></div>
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        ></script>
+        <script 
+                async
+                onerror="window.KeepCommentPlugin.loadFailHandle()"
+        >
+          window.KeepCommentPlugin.initValine = () => {
+            const config = {
+              el: '#vcomments',
+              appId: 'QhzIaCu4epfSLVlGoccyOGMs-gzGzoHsz',
+              appKey: '0NYvSTb2WYVBxhG4EOhQJnjO',
+              meta: ['nick', 'mail', 'link'],
+              avatar: 'wavatar',
+              enableQQ: true,
+              placeholder: '给我的文章加点评论吧~',
+              lang: 'en'.toLowerCase()
+            }
+
+            if ('') {
+              config.serverURLs = ''
+            }
+
+            if (window?.Valine) {
+              new Valine(config)
+              window.KeepCommentPlugin.hideLoading()
+            } else {
+              setTimeout(() => {
+                window.KeepCommentPlugin.initValine()
+              }, 1000)
+            }
+          }
+
+          if ('false' === 'true') {
+            setTimeout(() => {
+              window.KeepCommentPlugin.initValine()
+            }, 1200)
+          } else {
+            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initValine)
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%98%E7%94%B1%E4%B8%8E%E5%AE%9A%E4%BD%8D%EF%BC%9A%E7%9F%A5%E8%AF%86%E5%BA%93%EF%BC%9F%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">缘由与定位：知识库？第二大脑？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E5%8E%9F%E5%88%99%EF%BC%9A%E5%86%99%E3%80%81%E5%9B%9E%E9%A1%BE%E3%80%81%E6%9B%B4%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">记录原则：写、回顾、更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E5%8F%82%E8%80%83%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">一些可参考的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BF%A1%E6%81%AF%E5%88%86%E7%BA%A7%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.</span> <span class="nav-text">1. 信息分级处理系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%8E%9F%E5%AD%90%E5%8C%96%E5%86%99%E4%BD%9C%E5%8E%9F%E5%88%99"><span class="nav-number">3.2.</span> <span class="nav-text">2. 原子化写作原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%BB%E5%8A%A8%E5%9B%9E%E9%A1%BE%EF%BC%9A%E5%8D%A1%E7%89%87%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">3. 主动回顾：卡片回溯法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%BF%AD%E4%BB%A3%E6%AF%94%E5%8E%9F%E5%88%99%EF%BC%8C%E6%8A%8A%E6%8F%A1%E8%BF%AD%E4%BB%A3%E4%BC%98%E5%8C%96%E7%9A%84%E8%8A%82%E5%A5%8F"><span class="nav-number">3.4.</span> <span class="nav-text">4. 迭代比原则，把握迭代优化的节奏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E6%A6%82%E5%BF%B5%E5%AE%8C%E6%95%B4%E6%80%A7%E5%8E%9F%E5%88%99%EF%BC%8C%E6%B3%A8%E9%87%8D%E9%97%AD%E7%8E%AF%E5%92%8C%E8%81%94%E7%B3%BB"><span class="nav-number">3.5.</span> <span class="nav-text">5. 概念完整性原则，注重闭环和联系</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">胖虎</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">Total words</span>
+                    <span class="item-value border-box word">25.8k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">Unique Visitor</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">Page View</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%98%E7%94%B1%E4%B8%8E%E5%AE%9A%E4%BD%8D%EF%BC%9A%E7%9F%A5%E8%AF%86%E5%BA%93%EF%BC%9F%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">缘由与定位：知识库？第二大脑？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E5%8E%9F%E5%88%99%EF%BC%9A%E5%86%99%E3%80%81%E5%9B%9E%E9%A1%BE%E3%80%81%E6%9B%B4%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">记录原则：写、回顾、更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E5%8F%82%E8%80%83%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">一些可参考的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E4%BF%A1%E6%81%AF%E5%88%86%E7%BA%A7%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.</span> <span class="nav-text">1. 信息分级处理系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%8E%9F%E5%AD%90%E5%8C%96%E5%86%99%E4%BD%9C%E5%8E%9F%E5%88%99"><span class="nav-number">3.2.</span> <span class="nav-text">2. 原子化写作原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%BB%E5%8A%A8%E5%9B%9E%E9%A1%BE%EF%BC%9A%E5%8D%A1%E7%89%87%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">3. 主动回顾：卡片回溯法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%BF%AD%E4%BB%A3%E6%AF%94%E5%8E%9F%E5%88%99%EF%BC%8C%E6%8A%8A%E6%8F%A1%E8%BF%AD%E4%BB%A3%E4%BC%98%E5%8C%96%E7%9A%84%E8%8A%82%E5%A5%8F"><span class="nav-number">3.4.</span> <span class="nav-text">4. 迭代比原则，把握迭代优化的节奏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E6%A6%82%E5%BF%B5%E5%AE%8C%E6%95%B4%E6%80%A7%E5%8E%9F%E5%88%99%EF%BC%8C%E6%B3%A8%E9%87%8D%E9%97%AD%E7%8E%AF%E5%92%8C%E8%81%94%E7%B3%BB"><span class="nav-number">3.5.</span> <span class="nav-text">5. 概念完整性原则，注重闭环和联系</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/js/post/copyright-info.js"></script>
+
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
